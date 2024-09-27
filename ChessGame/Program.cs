@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace Chess
 {
     enum ChessPiece { o, P, R, N, B, K, Q, p, r, n, b, k, q }
@@ -8,7 +9,6 @@ namespace Chess
         static ChessPiece[,] board = new ChessPiece[8, 8];
         static void Main(string[] args)
         {
-
             board[0, 0] = ChessPiece.R;
             board[1, 0] = ChessPiece.N;
             board[2, 0] = ChessPiece.B;
@@ -45,17 +45,24 @@ namespace Chess
             board[6, 7] = ChessPiece.n;
             board[7, 7] = ChessPiece.r;
 
-            DrawBoard();
-            Console.WriteLine();
-            Console.ReadKey();
 
+
+
+            while (true)
+            {
+                DrawBoard();
+                char[] currentMove = Console.ReadLine().ToCharArray();
+
+                MovePiece((int)char.GetNumericValue(currentMove[0]), (int)char.GetNumericValue(currentMove[1]), (int)char.GetNumericValue(currentMove[2]), (int)char.GetNumericValue(currentMove[3]));
+            }
         }
         static void DrawBoard()
         {
+            Console.Clear();
             for (int y = 7; y > -1; y--)
             {
                 Console.WriteLine("* - * - * - * - * - * - * - * - *");
-                Console.Write("|");
+                Console.Write(y);
                 for (int x = 0; x < 8; x++)
                 {
                     if ((x + y) % 2 == 0)
@@ -68,14 +75,27 @@ namespace Chess
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.ForegroundColor = ConsoleColor.Black;
                     }
-                    Console.Write($" {board[x, y]} ");
+                    if ((board[x, y]) != (ChessPiece.o))
+                    {
+                        Console.Write($" {board[x, y]} ");
+                    }
+                    else
+                    {
+                        Console.Write("   ");
+                    }
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write("|");
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("* - * - * - * - * - * - * - * - *");
+            Console.WriteLine("* 0 * 1 * 2 * 3 * 4 * 5 * 6 * 7 *");
+        }
+
+        static void MovePiece(int x1, int y1, int x2, int y2)
+        {
+            board[x2, y2] = board[x1, y1];
+            board[x1, y1] = ChessPiece.o;
         }
     }
 }
