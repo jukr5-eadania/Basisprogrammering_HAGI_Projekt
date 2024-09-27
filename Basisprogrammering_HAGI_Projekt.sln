@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collection", "Collection\Collection.csproj", "{B543C1FB-15C0-4985-B4DF-775635817FE8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game_Jeopardy_Emilie", "Game_Jeopardy_Emilie\Game_Jeopardy_Emilie.csproj", "{A2BDFBF1-D13B-4256-B595-50528F4F691E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B543C1FB-15C0-4985-B4DF-775635817FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B543C1FB-15C0-4985-B4DF-775635817FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B543C1FB-15C0-4985-B4DF-775635817FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2BDFBF1-D13B-4256-B595-50528F4F691E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2BDFBF1-D13B-4256-B595-50528F4F691E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2BDFBF1-D13B-4256-B595-50528F4F691E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2BDFBF1-D13B-4256-B595-50528F4F691E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
