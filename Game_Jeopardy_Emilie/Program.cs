@@ -33,7 +33,7 @@ namespace Game_Jeopardy_Emilie
 
             switch (choosenCategory)
             {
-                case 1: 
+                case 1: //Who is that character
                     {
                         Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p");
                         pointcategory = Convert.ToInt32(Console.ReadLine());
@@ -42,7 +42,7 @@ namespace Game_Jeopardy_Emilie
 
                         break;
                     }
-                case 2:
+                case 2: //.Where is that character from
                     {
                         Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p");
                         pointcategory = Convert.ToInt32(Console.ReadLine());
@@ -50,7 +50,7 @@ namespace Game_Jeopardy_Emilie
 
                         break;
                     }
-                case 3:
+                case 3: //Horror
                     {
                         Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p");
                         pointcategory = Convert.ToInt32(Console.ReadLine());
