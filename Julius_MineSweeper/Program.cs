@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Julius_MineSweeper
 {
+    //Defines enums used to reprecent spaces on the board with numbers
     enum Spaces
     {
         EmptySpace,
@@ -23,6 +24,7 @@ namespace Julius_MineSweeper
 
     internal class Program
     {
+        //Define variables and arrays
         static Random rnd = new Random();
         static int[,] newMSB = new int[10, 10];
         static int[,] playerMSB = new int[10, 10];
@@ -57,12 +59,12 @@ namespace Julius_MineSweeper
             Console.WriteLine("  * - * - * - * - * - * - * - * - *");
         }
 
-
+        /// <summary>
+        /// Creates a new MineSweeper board
+        /// </summary>
         static void WriteNewMSB()
         {
-            sideGridNumber = 0;
-            Console.WriteLine("    a   b   c   d   e   f   h   i");
-
+            //For loop that places 10 bombs in random spaces on the array
             for (int a = 0; a < 11; a++)
             {
                 int rndX = rnd.Next(1, 9);
@@ -70,6 +72,8 @@ namespace Julius_MineSweeper
                 newMSB[rndX, rndY] = (int)Spaces.Bomb;
             }
 
+            //For loop that loops through all numbers on the array to check for bombs in the surrounding 8 fields of the field its currently on
+            //and assigns a number to that field based on it
             for (int x = 1; x < newMSB.GetLength(0) - 1; x++)
             {
                 for (int y = 1; y < newMSB.GetLength(1) - 1; y++)
@@ -77,7 +81,6 @@ namespace Julius_MineSweeper
                     if (newMSB[x, y] != (int)Spaces.Bomb)
                     {
                         int bombs = 0;
-                        //checker de 8 nærlæggende felter for bomber og lægger det passende tal til på feltet
                         if (newMSB[x - 1, y - 1] == (int)Spaces.Bomb)
                         {
                             bombs++;
@@ -117,20 +120,23 @@ namespace Julius_MineSweeper
 
             }
 
-            for (int x = 1; x < newMSB.GetLength(0) - 1; x++)
-            {
-                Console.WriteLine("  * - * - * - * - * - * - * - * - *");
-                Console.Write(sideGrid[sideGridNumber] + " | ");
-                sideGridNumber++;
-                for (int y = 1; y < newMSB.GetLength(1) - 1; y++)
-                {
-                    Console.Write(newMSB[x, y] + " ");
-                    Console.Write("| ");
-                }
-                Console.WriteLine();
+            //Writes the new MS board (Mainly used for testing if if the function works)
+            //sideGridNumber = 0;
+            //Console.WriteLine("    a   b   c   d   e   f   h   i");
+            //for (int x = 1; x < newMSB.GetLength(0) - 1; x++)
+            //{
+            //    Console.WriteLine("  * - * - * - * - * - * - * - * - *");
+            //    Console.Write(sideGrid[sideGridNumber] + " | ");
+            //    sideGridNumber++;
+            //    for (int y = 1; y < newMSB.GetLength(1) - 1; y++)
+            //    {
+            //        Console.Write(newMSB[x, y] + " ");
+            //        Console.Write("| ");
+            //    }
+            //    Console.WriteLine();
 
-            }
-            Console.WriteLine("  * - * - * - * - * - * - * - * - *");
+            //}
+            //Console.WriteLine("  * - * - * - * - * - * - * - * - *");
         }
     }
 
