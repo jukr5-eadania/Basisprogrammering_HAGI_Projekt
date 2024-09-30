@@ -384,13 +384,13 @@ namespace Game_Jeopardy_Emilie
                         if (myanswer == Answer)
                         {
                             RightAnswer();
-                            myscore = +300;
+                            myscore = +500;
                         }
                         else
                         {
                             WrongAnswer();
                             Console.WriteLine("The answer was:\n" + Answer);
-                            myscore = -300;
+                            myscore = -500;
                         }
                         break;
                     }
@@ -442,7 +442,56 @@ namespace Game_Jeopardy_Emilie
                     }
                 case 3:
                     {
-
+                        Console.WriteLine("In what country does Metal Gear Solid 3: Snake Eaater take place?");
+                        myanswer = Console.ReadLine();
+                        string Answer = "what is russia";
+                        if (myanswer == Answer)
+                        {
+                            RightAnswer();
+                            myscore = +300;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + Answer);
+                            myscore = -300;
+                        }
+                        break;
+                    }
+                case 4:
+                    {
+                        Console.WriteLine("What country has inspired Tomb Raider (2014) setting");
+                        myanswer = Console.ReadLine();
+                        string Answer = "what is japan";
+                        if (myanswer == Answer)
+                        {
+                            RightAnswer();
+                            myscore = +400;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + Answer);
+                            myscore = -400;
+                        }
+                        break;
+                    }
+                case 5:
+                    {
+                        Console.WriteLine("What country is Resident Evil 4 set in?");
+                        myanswer = Console.ReadLine();
+                        string Answer = "what is spain";
+                        if (myanswer == Answer)
+                        {
+                            RightAnswer();
+                            myscore = +500;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + Answer);
+                            myscore = -500;
+                        }
                         break;
                     }
             }
