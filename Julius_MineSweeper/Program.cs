@@ -54,17 +54,19 @@ namespace Julius_MineSweeper
         static void WritePlayerMSB()
         {
             sideGridNumber = 0;
+            Console.WriteLine("PlayerMSB");
             Console.WriteLine("    1   2   3   4   5   6   7   8");
 
-            for (int y = 1; y < newMSB.GetLength(0) - 1; y++)
+            for (int y = 1; y < playerMSB.GetLength(0) - 1; y++)
             {
                 Console.WriteLine("  * - * - * - * - * - * - * - * - *");
                 Console.Write(sideGrid[sideGridNumber] + " | ");
                 sideGridNumber++;
-                for (int x = 1; x < newMSB.GetLength(1) - 1; x++)
+                for (int x = 1; x < playerMSB.GetLength(1) - 1; x++)
                 {
-                    Console.Write(newMSB[x, y] + " ");
+                    Console.Write(playerMSB[x, y] + " ");
                     Console.Write("| ");
+
                 }
                 Console.WriteLine();
 
@@ -133,23 +135,32 @@ namespace Julius_MineSweeper
 
             }
 
-            //Writes the new MS board (Mainly used for testing if if the function works)
-            //sideGridNumber = 0;
-            //Console.WriteLine("    1   2   3   4   5   6   7   8");
-            //for (int y = 1; y < newMSB.GetLength(0) - 1; y++)
-            //{
-            //    Console.WriteLine("  * - * - * - * - * - * - * - * - *");
-            //    Console.Write(sideGrid[sideGridNumber] + " | ");
-            //    sideGridNumber++;
-            //    for (int x = 1; x < newMSB.GetLength(1) - 1; x++)
-            //    {
-            //        Console.Write(newMSB[x, y] + " ");
-            //        Console.Write("| ");
-            //    }
-            //    Console.WriteLine();
+            //Writes the new MS board(Mainly used for testing if if the function works)
+            sideGridNumber = 0;
+            Console.WriteLine("NewMSB");
+            Console.WriteLine("    1   2   3   4   5   6   7   8");
+            for (int y = 1; y < newMSB.GetLength(0) - 1; y++)
+            {
+                Console.WriteLine("  * - * - * - * - * - * - * - * - *");
+                Console.Write(sideGrid[sideGridNumber] + " | ");
+                sideGridNumber++;
+                for (int x = 1; x < newMSB.GetLength(1) - 1; x++)
+                {
+                    if (newMSB[x, y] != (int)Spaces.EmptySpace)
+                    {
+                        Console.Write(newMSB[x, y] + " ");
+                        Console.Write("| ");
 
-            //}
-            //Console.WriteLine("  * - * - * - * - * - * - * - * - *");
+                    } else
+                    {
+                        Console.Write("  ");
+                        Console.Write("| ");
+                    }
+                }
+                Console.WriteLine();
+
+            }
+            Console.WriteLine("  * - * - * - * - * - * - * - * - *");
         }
 
         /// <summary>
@@ -158,14 +169,21 @@ namespace Julius_MineSweeper
         static void CheckMSBValue()
         {
             char[] userInput = Console.ReadLine().ToCharArray();
-            int userX = (int) char.GetNumericValue(userInput[0]);
-            int userY = (int) char.GetNumericValue(userInput[1]);
+            int userX = (int)char.GetNumericValue(userInput[0]);
+            int userY = (int)char.GetNumericValue(userInput[1]);
             int userPosition = newMSB[userX, userY];
 
-            if (newMSB[userX, userY] == (int)Spaces.Bomb)
+            if (newMSB[userX, userY] != (int)Spaces.Bomb)
+            {
+                Console.WriteLine(userPosition);
+                playerMSB[userX, userY] = newMSB[userX, userY];
+
+            }
+            else
             {
                 Console.WriteLine("Game Over");
                 playing = false;
+
             }
 
         }
