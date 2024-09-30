@@ -496,6 +496,17 @@ namespace Game_Jeopardy_Emilie
                     }
             }
         }
+        static void dfg()
+        {
+            switch (pointcategory)
+            {
+                case 1:
+                    {
+
+                        break;
+                    }
+            }
+        }
         
     }
 }
