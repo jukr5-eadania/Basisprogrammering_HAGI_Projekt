@@ -228,7 +228,43 @@ namespace Julius_MineSweeper
             {
                 if (newMSB[userX, userY] == (int)Spaces.Unkown)
                 {
-                    playerMSB[userX, userY] = (int) Spaces.EmptySpace;
+                    playerMSB[userX, userY] = (int)Spaces.EmptySpace;
+
+                    if (newMSB[userX - 1, userY - 1] == (int)Spaces.Unkown)
+                    {
+                        playerMSB[userX - 1, userY - 1] = (int)Spaces.EmptySpace;
+                    }
+                    if (newMSB[userX, userY - 1] == (int)Spaces.Unkown)
+                    {
+                        playerMSB[userX, userY - 1] = (int)Spaces.EmptySpace;
+                    }
+                    if (newMSB[userX + 1, userY - 1] == (int)Spaces.Unkown)
+                    {
+                        playerMSB[userX + 1, userY - 1] = (int)Spaces.EmptySpace;
+                    }
+                    if (newMSB[userX - 1, userY] == (int)Spaces.Unkown)
+                    {
+                        playerMSB[userX - 1, userY] = (int)Spaces.EmptySpace;
+                    }
+
+                    if (newMSB[userX + 1, userY] == (int)Spaces.Unkown)
+                    {
+                        playerMSB[userX + 1, userY] = (int)Spaces.EmptySpace;
+                    }
+                    if (newMSB[userX - 1, userY + 1] == (int)Spaces.Unkown)
+                    {
+                        playerMSB[userX - 1, userY + 1] = (int)Spaces.EmptySpace;
+                    }
+                    if (newMSB[userX, userY + 1] == (int)Spaces.Unkown)
+                    {
+                        playerMSB[userX, userY + 1] = (int)Spaces.EmptySpace;
+                    }
+                    if (newMSB[userX + 1, userY + 1] == (int)Spaces.Unkown)
+                    {
+                        playerMSB[userX + 1, userY + 1] = (int)Spaces.EmptySpace;
+                    }
+
+
                 }
                 else
                 {
