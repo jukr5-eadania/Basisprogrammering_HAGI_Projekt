@@ -116,6 +116,7 @@ namespace Game_Jeopardy_Emilie
                         else
                         {
                             WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + AnswerLink);
                             myscore = -100;
                         }
                         break;
@@ -133,6 +134,7 @@ namespace Game_Jeopardy_Emilie
                         else
                         {
                             WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + AnswerKirby);
                             myscore = -200;
                         }
                         break;
@@ -150,6 +152,7 @@ namespace Game_Jeopardy_Emilie
                         else
                         {
                             WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + AnswerCynder);
                             myscore = -300;
                         }
                         break;
@@ -167,6 +170,7 @@ namespace Game_Jeopardy_Emilie
                         else
                         {
                             WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + AnswerRyuji);
                             myscore = -400;
                         }
                         break;
@@ -184,6 +188,7 @@ namespace Game_Jeopardy_Emilie
                         else
                         {
                             WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + AnswerKass);
                             myscore = -500;
                         }
                         break;
@@ -211,6 +216,7 @@ namespace Game_Jeopardy_Emilie
                         else
                         {
                             WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + AnswerHalfLife);
                             myscore = -100;
                         }
                         break;
@@ -228,6 +234,7 @@ namespace Game_Jeopardy_Emilie
                         else
                         {
                               WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + AnswerStray);
                             myscore = -200;
                       }
                         break;
@@ -245,6 +252,7 @@ namespace Game_Jeopardy_Emilie
                         else
                         {
                             WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + AnswerJack);
                             myscore = -300;
                         }
                         break;
@@ -262,6 +270,7 @@ namespace Game_Jeopardy_Emilie
                         else
                         {
                             WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + AnswerAloy);
                             myscore = -400;
                         }
                         break;
@@ -279,6 +288,7 @@ namespace Game_Jeopardy_Emilie
                         else
                         {
                             WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + AnswerSifu);
                             myscore = -500;
                         }
                         break;
@@ -296,7 +306,20 @@ namespace Game_Jeopardy_Emilie
             {
                 case 1:
                     {
-                        Console.WriteLine("")
+                        Console.WriteLine("Space-horror game where player\nis up against (or more like hidding from) a Xenomorph");
+                        myanswer = Console.ReadLine();
+                        string AnswerAlien = "what is alien: isolation";
+                        if (myanswer == AnswerAlien)
+                        {
+                            RightAnswer();
+                            myscore = +100;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + AnswerAlien);
+                            myscore = -100;
+                        }
                         break;
                     }
             }
@@ -322,6 +345,7 @@ namespace Game_Jeopardy_Emilie
                         else
                         {
                             WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + AnswerWukong);
                             myscore = -100;
                         }
                         break;
@@ -339,6 +363,7 @@ namespace Game_Jeopardy_Emilie
                         else
                         {
                             WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + AnswerMirage);
                             myscore = -200;
                         }
                         break;
