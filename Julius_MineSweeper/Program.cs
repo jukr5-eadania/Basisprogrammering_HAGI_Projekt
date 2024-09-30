@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,6 @@ namespace Julius_MineSweeper
         Seven,
         Eight,
         Bomb
-
     }
 
     internal class Program
@@ -30,25 +30,34 @@ namespace Julius_MineSweeper
         static int[,] playerMSB = new int[10, 10];
         static int[] sideGrid = new int[8] { 1, 2, 3, 4, 5, 6, 7, 8 };
         static int sideGridNumber = 0;
+        static string userInput = string.Empty;
 
         static void Main(string[] args)
         {
-            WriteNewMSB();
+            //Define variables
 
-            Console.ReadLine();
+
+            WriteNewMSB();
+            Console.WriteLine("Welcome to MineSweeper");
+
+            while (true)
+            {
+                WritePlayerMSB();
+                CheckMSBValue();
+            }
         }
 
         static void WritePlayerMSB()
         {
             sideGridNumber = 0;
-            Console.WriteLine("    a   b   c   d   e   f   h   i");
+            Console.WriteLine("    1   2   3   4   5   6   7   8");
 
-            for (int x = 0; x < newMSB.GetLength(0); x++)
+            for (int x = 1; x < newMSB.GetLength(0) - 1; x++)
             {
                 Console.WriteLine("  * - * - * - * - * - * - * - * - *");
                 Console.Write(sideGrid[sideGridNumber] + " | ");
                 sideGridNumber++;
-                for (int y = 0; y < newMSB.GetLength(1); y++)
+                for (int y = 1; y < newMSB.GetLength(1) - 1; y++)
                 {
                     Console.Write(newMSB[x, y] + " ");
                     Console.Write("| ");
@@ -113,7 +122,7 @@ namespace Julius_MineSweeper
                         {
                             bombs++;
                         }
-                        newMSB[x, y] = (int) ((Spaces)bombs);
+                        newMSB[x, y] = (int)((Spaces)bombs);
                     }
 
                 }
@@ -122,7 +131,7 @@ namespace Julius_MineSweeper
 
             //Writes the new MS board (Mainly used for testing if if the function works)
             //sideGridNumber = 0;
-            //Console.WriteLine("    a   b   c   d   e   f   h   i");
+            //Console.WriteLine("    1   2   3   4   5   6   7   8");
             //for (int x = 1; x < newMSB.GetLength(0) - 1; x++)
             //{
             //    Console.WriteLine("  * - * - * - * - * - * - * - * - *");
@@ -138,6 +147,19 @@ namespace Julius_MineSweeper
             //}
             //Console.WriteLine("  * - * - * - * - * - * - * - * - *");
         }
+
+        /// <summary>
+        /// Checks MSB based on user input
+        /// </summary>
+        static void CheckMSBValue()
+        {
+            char[] userInput = Console.ReadLine().ToCharArray();
+            int userX = (int) char.GetNumericValue(userInput[0]);
+            int userY = (int) char.GetNumericValue(userInput[1]);
+
+            Console.WriteLine(newMSB[userX, userY]);
+        }
+
     }
 
 }
