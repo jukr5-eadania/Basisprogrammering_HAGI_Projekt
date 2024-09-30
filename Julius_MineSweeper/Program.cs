@@ -11,16 +11,17 @@ namespace Julius_MineSweeper
     //Defines enums used to reprecent spaces on the board with numbers
     enum Spaces
     {
-        EmptySpace = 0,
-        One = 1,
-        Two = 2,
-        Three = 3,
-        Four = 4,
-        Five = 5,
-        Six = 6,
-        Seven = 7,
-        Eight = 8,
-        Bomb = 9
+        Unkown,
+        One,
+        Two,
+        Three,
+        Four,
+        Five,
+        Six,
+        Seven,
+        Eight,
+        Bomb,
+        EmptySpace
     }
 
     internal class Program
@@ -50,6 +51,7 @@ namespace Julius_MineSweeper
 
         static void WritePlayerMSB()
         {
+            Console.Clear();
             sideGridNumber = 0;
             Console.WriteLine("PlayerMSB");
             Console.WriteLine("    1   2   3   4   5   6   7   8");
@@ -61,8 +63,27 @@ namespace Julius_MineSweeper
                 sideGridNumber++;
                 for (int x = 1; x < playerMSB.GetLength(1) - 1; x++)
                 {
-                    Console.Write(playerMSB[x, y] + " ");
-                    Console.Write("| ");
+                    if (playerMSB[x, y] == (int)Spaces.Unkown)
+                    {
+                        Console.Write("? ");
+                        Console.Write("| ");
+
+                    }
+                    else
+                    {
+                        if (playerMSB[x, y] == (int)Spaces.EmptySpace)
+                        {
+                            Console.Write("  ");
+                            Console.Write("| ");
+                        }
+                        else
+                        {
+                            Console.Write(playerMSB[x, y] + " ");
+                            Console.Write("| ");
+
+                        }
+
+                    }
 
                 }
                 Console.WriteLine();
@@ -143,12 +164,13 @@ namespace Julius_MineSweeper
                 sideGridNumber++;
                 for (int x = 1; x < newMSB.GetLength(1) - 1; x++)
                 {
-                    if (newMSB[x, y] != (int)Spaces.EmptySpace)
+                    if (newMSB[x, y] != (int)Spaces.Unkown)
                     {
                         Console.Write(newMSB[x, y] + " ");
                         Console.Write("| ");
 
-                    } else
+                    }
+                    else
                     {
                         Console.Write("  ");
                         Console.Write("| ");
@@ -172,8 +194,15 @@ namespace Julius_MineSweeper
 
             if (newMSB[userX, userY] != (int)Spaces.Bomb)
             {
-                Console.WriteLine(userPosition);
-                playerMSB[userX, userY] = newMSB[userX, userY];
+                if (newMSB[userX, userY] == (int)Spaces.Unkown)
+                {
+                    playerMSB[userX, userY] = (int) Spaces.EmptySpace;
+                }
+                else
+                {
+                    Console.WriteLine(userPosition);
+                    playerMSB[userX, userY] = newMSB[userX, userY];
+                }
 
             }
             else
