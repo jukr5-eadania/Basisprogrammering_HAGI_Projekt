@@ -37,22 +37,25 @@ namespace Julius_MineSweeper
 
         static void Main(string[] args)
         {
-            WriteNewMSB();
+            CreateNewMSB();
             Console.WriteLine("Welcome to MineSweeper");
 
             while (playing)
             {
+                Console.Clear();
                 WritePlayerMSB();
-                WriteNewMSBTest();
+                WriteNewMSB();
                 CheckMSBValue();
             }
             Console.WriteLine("The program will now terminate");
             Thread.Sleep(1000);
         }
 
+        /// <summary>
+        /// Writes the MSB that the player will see during play
+        /// </summary>
         static void WritePlayerMSB()
         {
-            Console.Clear();
             sideGridNumber = 0;
             Console.WriteLine("PlayerMSB");
             Console.WriteLine("    1   2   3   4   5   6   7   8");
@@ -96,7 +99,7 @@ namespace Julius_MineSweeper
         /// <summary>
         /// Creates a new MineSweeper board
         /// </summary>
-        static void WriteNewMSB()
+        static void CreateNewMSB()
         {
             //For loop that places 10 bombs in random spaces on the array
             for (int a = 0; a < 11; a++)
@@ -154,36 +157,9 @@ namespace Julius_MineSweeper
 
             }
 
-            //Writes the new MS board(Mainly used for testing if if the function works)
-            sideGridNumber = 0;
-            Console.WriteLine("NewMSB");
-            Console.WriteLine("    1   2   3   4   5   6   7   8");
-            for (int y = 1; y < newMSB.GetLength(0) - 1; y++)
-            {
-                Console.WriteLine("  * - * - * - * - * - * - * - * - *");
-                Console.Write(sideGrid[sideGridNumber] + " | ");
-                sideGridNumber++;
-                for (int x = 1; x < newMSB.GetLength(1) - 1; x++)
-                {
-                    if (newMSB[x, y] != (int)Spaces.Unkown)
-                    {
-                        Console.Write(newMSB[x, y] + " ");
-                        Console.Write("| ");
-
-                    }
-                    else
-                    {
-                        Console.Write("  ");
-                        Console.Write("| ");
-                    }
-                }
-                Console.WriteLine();
-
-            }
-            Console.WriteLine("  * - * - * - * - * - * - * - * - *");
         }
 
-        static void WriteNewMSBTest()
+        static void WriteNewMSB()
         {
             //Writes the new MS board(Mainly used for testing if if the function works)
             sideGridNumber = 0;
@@ -219,17 +195,22 @@ namespace Julius_MineSweeper
         /// </summary>
         static void CheckMSBValue()
         {
+            //Assign variables
             char[] userInput = Console.ReadLine().ToCharArray();
             int userX = (int)char.GetNumericValue(userInput[0]);
             int userY = (int)char.GetNumericValue(userInput[1]);
             int userPosition = newMSB[userX, userY];
 
+            //Checks if player doens't hit a bomb
             if (newMSB[userX, userY] != (int)Spaces.Bomb)
             {
+                //Checks if the player hits an unknown space
                 if (newMSB[userX, userY] == (int)Spaces.Unkown)
                 {
+                    //Changes the spot the player hit to an empty space on the player board
                     playerMSB[userX, userY] = (int)Spaces.EmptySpace;
 
+                    //Checks the 8 surrounding spaces if they are unknown as well and changes them to empty spaces if they are unkown
                     if (newMSB[userX - 1, userY - 1] == (int)Spaces.Unkown)
                     {
                         playerMSB[userX - 1, userY - 1] = (int)Spaces.EmptySpace;
@@ -246,7 +227,6 @@ namespace Julius_MineSweeper
                     {
                         playerMSB[userX - 1, userY] = (int)Spaces.EmptySpace;
                     }
-
                     if (newMSB[userX + 1, userY] == (int)Spaces.Unkown)
                     {
                         playerMSB[userX + 1, userY] = (int)Spaces.EmptySpace;
@@ -264,17 +244,19 @@ namespace Julius_MineSweeper
                         playerMSB[userX + 1, userY + 1] = (int)Spaces.EmptySpace;
                     }
 
-
                 }
+                //Changes playerboard to reflect how the newMSB looks so the player can see what number they revealed
                 else
                 {
-                    Console.WriteLine(userPosition);
                     playerMSB[userX, userY] = newMSB[userX, userY];
                 }
 
             }
+            //If player hits a bomb end the game and write game over
             else
             {
+                Console.Clear();
+                WriteNewMSB();
                 Console.WriteLine("Game Over");
                 playing = false;
 
