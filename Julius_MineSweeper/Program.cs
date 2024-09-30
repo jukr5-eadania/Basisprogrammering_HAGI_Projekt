@@ -36,9 +36,6 @@ namespace Julius_MineSweeper
 
         static void Main(string[] args)
         {
-            //Define variables
-
-
             WriteNewMSB();
             Console.WriteLine("Welcome to MineSweeper");
 
@@ -148,7 +145,7 @@ namespace Julius_MineSweeper
                 {
                     if (newMSB[x, y] != (int)Spaces.EmptySpace)
                     {
-                        Console.Write($"newMSB[x, y]" + " ");
+                        Console.Write(newMSB[x, y] + " ");
                         Console.Write("| ");
 
                     } else
