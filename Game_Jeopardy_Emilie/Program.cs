@@ -322,6 +322,78 @@ namespace Game_Jeopardy_Emilie
                         }
                         break;
                     }
+                case 2:
+                    {
+                        Console.WriteLine("Horror game, developed by Konami, that became\nknown for its dystopian city and psychological elements\nthat included a character named Heather Manson");
+                        myanswer = Console.ReadLine();
+                        string AnswerSilentHill = "what is silent hill 3";
+                        if (myanswer == AnswerSilentHill)
+                        {
+                            RightAnswer();
+                            myscore = +200;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + AnswerSilentHill);
+                            myscore = -200;
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        Console.WriteLine("A popular post-apocalyptic game that has been into a tv-serie");
+                        myanswer = Console.ReadLine();
+                        string Answer = "what is the last of us";
+                        if (myanswer == Answer)
+                        {
+                            RightAnswer();
+                            myscore = +300;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + Answer);
+                            myscore = -300;
+                        }
+                        break;
+                    }
+                case 4:
+                    {
+                        Console.WriteLine("Horror-puzzle game where a tiny child in yellow raincoat\nis trying to escape getting eaten/killed");
+                        myanswer = Console.ReadLine();
+                        string Answer = "what is little nightmares";
+                        if (myanswer == Answer)
+                        {
+                            RightAnswer();
+                            myscore = +400;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + Answer);
+                            myscore = -400;
+                        }
+                        break;
+                    }
+                case 5:
+                    {
+                        Console.WriteLine("horror game franchise where your only weapon is a camera ");
+                        myanswer = Console.ReadLine();
+                        string Answer = "what is fatal frame";
+                        if (myanswer == Answer)
+                        {
+                            RightAnswer();
+                            myscore = +300;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + Answer);
+                            myscore = -300;
+                        }
+                        break;
+                    }
             }
         }
        
