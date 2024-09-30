@@ -43,6 +43,7 @@ namespace Julius_MineSweeper
             while (playing)
             {
                 WritePlayerMSB();
+                WriteNewMSBTest();
                 CheckMSBValue();
             }
             Console.WriteLine("The program will now terminate");
@@ -153,6 +154,37 @@ namespace Julius_MineSweeper
 
             }
 
+            //Writes the new MS board(Mainly used for testing if if the function works)
+            sideGridNumber = 0;
+            Console.WriteLine("NewMSB");
+            Console.WriteLine("    1   2   3   4   5   6   7   8");
+            for (int y = 1; y < newMSB.GetLength(0) - 1; y++)
+            {
+                Console.WriteLine("  * - * - * - * - * - * - * - * - *");
+                Console.Write(sideGrid[sideGridNumber] + " | ");
+                sideGridNumber++;
+                for (int x = 1; x < newMSB.GetLength(1) - 1; x++)
+                {
+                    if (newMSB[x, y] != (int)Spaces.Unkown)
+                    {
+                        Console.Write(newMSB[x, y] + " ");
+                        Console.Write("| ");
+
+                    }
+                    else
+                    {
+                        Console.Write("  ");
+                        Console.Write("| ");
+                    }
+                }
+                Console.WriteLine();
+
+            }
+            Console.WriteLine("  * - * - * - * - * - * - * - * - *");
+        }
+
+        static void WriteNewMSBTest()
+        {
             //Writes the new MS board(Mainly used for testing if if the function works)
             sideGridNumber = 0;
             Console.WriteLine("NewMSB");

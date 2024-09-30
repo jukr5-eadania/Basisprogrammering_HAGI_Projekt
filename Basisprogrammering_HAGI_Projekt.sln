@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collection", "Collection\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Julius_MineSweeper", "Julius_MineSweeper\Julius_MineSweeper.csproj", "{DB348DD8-0798-478B-858C-9C064AA98C40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testings", "Testings\Testings.csproj", "{3E4F43D3-B98D-4B68-8129-6F24852B3EDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DB348DD8-0798-478B-858C-9C064AA98C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB348DD8-0798-478B-858C-9C064AA98C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB348DD8-0798-478B-858C-9C064AA98C40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E4F43D3-B98D-4B68-8129-6F24852B3EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E4F43D3-B98D-4B68-8129-6F24852B3EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E4F43D3-B98D-4B68-8129-6F24852B3EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E4F43D3-B98D-4B68-8129-6F24852B3EDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
