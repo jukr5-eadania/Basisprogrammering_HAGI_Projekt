@@ -11,16 +11,16 @@ namespace Julius_MineSweeper
     //Defines enums used to reprecent spaces on the board with numbers
     enum Spaces
     {
-        EmptySpace,
-        One,
-        Two,
-        Three,
-        Four,
-        Five,
-        Six,
-        Seven,
-        Eight,
-        Bomb
+        EmptySpace = 0,
+        One = 1,
+        Two = 2,
+        Three = 3,
+        Four = 4,
+        Five = 5,
+        Six = 6,
+        Seven = 7,
+        Eight = 8,
+        Bomb = 9
     }
 
     internal class Program
@@ -148,7 +148,7 @@ namespace Julius_MineSweeper
                 {
                     if (newMSB[x, y] != (int)Spaces.EmptySpace)
                     {
-                        Console.Write(newMSB[x, y] + " ");
+                        Console.Write($"newMSB[x, y]" + " ");
                         Console.Write("| ");
 
                     } else
