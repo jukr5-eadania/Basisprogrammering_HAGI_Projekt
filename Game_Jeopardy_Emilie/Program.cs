@@ -23,7 +23,7 @@ namespace Game_Jeopardy_Emilie
             //The intro, how to play and the score 
             // I want to showcase the points the player has at the top of the screen
             Console.WriteLine("Welcome to Jeopardy!\nHow To Play:\nPick a category by typing the corrosponding number\nof what you want to pick.\nRemember to write: what/who is ...");
-            Console.WriteLine($"Your Score: {myscore}\n");
+            Console.WriteLine($"Your Score: {points}\n");
 
             //Ask what category
             //Ask how many points
@@ -89,7 +89,6 @@ namespace Game_Jeopardy_Emilie
             Console.WriteLine("Wrong Answer");
             Console.ResetColor();            
         }
-
         static void RightAnswer()
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -108,7 +107,8 @@ namespace Game_Jeopardy_Emilie
                     {
                         Console.WriteLine("The one who always saves Zelda");
                          myanswer = Console.ReadLine();
-                        if(myanswer == AnswerLink)
+                        string AnswerLink = "who is link";
+                        if (myanswer == AnswerLink)
                         {
                             RightAnswer();
                             myscore = +100;
@@ -124,6 +124,7 @@ namespace Game_Jeopardy_Emilie
                     {
                         Console.WriteLine("A pink boll with a black hole for a stomach");
                          myanswer = Console.ReadLine();
+                        string AnswerKirby = "who is kirby";
                         if (myanswer == AnswerKirby)
                         {
                             RightAnswer();
@@ -140,6 +141,7 @@ namespace Game_Jeopardy_Emilie
                     {
                         Console.WriteLine("Originally a servant of the Dark Master Malefor,\nshe was the main antagonist in The Legend of Spyro: A New Beginning\nuntil she was defeated and freed by Spyro.");
                          myanswer = Console.ReadLine();
+                        string AnswerCynder = "who is cynder";
                         if (myanswer == AnswerCynder)
                         {
                             RightAnswer();
@@ -156,6 +158,7 @@ namespace Game_Jeopardy_Emilie
                     {
                         Console.WriteLine("He is a student at Shujin Academy\nand a former track star who lives a double life as a Phantom Thief.\nHe is the protagonist's best friend and the Phantom Thieves' charge commander.");
                          myanswer = Console.ReadLine();
+                        string AnswerRyuji = "who is ryuji";
                         if (myanswer == AnswerRyuji)
                         {
                             RightAnswer();
@@ -172,6 +175,7 @@ namespace Game_Jeopardy_Emilie
                     {
                         Console.WriteLine("He is a wandering Rito minstrel who will\nplay the accordion and sing an ancient verse to Link,\ntelling him the location of several shrines throughout Hyrule.");
                          myanswer = Console.ReadLine();
+                        string AnswerKass = "who is kass";
                         if (myanswer == AnswerKass)
                         {
                             RightAnswer();
@@ -186,14 +190,7 @@ namespace Game_Jeopardy_Emilie
                     }
             }                        
         }
-        //the answer for WhoIsThatCharacter
-        static string AnswerLink = "who is link";
-        static string AnswerKirby = "who is kirby";
-        static string AnswerCynder = "who is cynder";
-        static string AnswerRyuji = "who is ryuji";
-        static string AnswerKass = "who is kass";
-
-
+        
         /// <summary>
         /// The question/answer system for "Where is that character from" category 
         /// </summary>
@@ -205,6 +202,7 @@ namespace Game_Jeopardy_Emilie
                     {
                         Console.WriteLine("The game franchises that introduced Gorden Freeman");
                         myanswer = Console.ReadLine();
+                        string AnswerHalfLife = "what is half-life";
                         if (myanswer == AnswerHalfLife)
                         {
                             RightAnswer();
@@ -221,6 +219,7 @@ namespace Game_Jeopardy_Emilie
                     {
                         Console.WriteLine("Play as an orange cat that got separated from their family/friends");
                         myanswer = Console.ReadLine();
+                        string AnswerStray = "what is stray";
                         if (myanswer == AnswerStray)
                         {
                             RightAnswer();
@@ -237,6 +236,7 @@ namespace Game_Jeopardy_Emilie
                     {
                         Console.WriteLine("What game debuted Handsome Jack");
                         myanswer = Console.ReadLine();
+                        string AnswerJack = "what is borderlands 2";
                         if (myanswer == AnswerJack)
                         {
                             RightAnswer();
@@ -249,30 +249,59 @@ namespace Game_Jeopardy_Emilie
                         }
                         break;
                     }
+                case 4:
+                    {
+                        Console.WriteLine("The game where you get introduced to the outcast Aloy");
+                        myanswer = Console.ReadLine();
+                        string AnswerAloy = "what is horizon zero dawn";
+                        if (myanswer == AnswerAloy)
+                        {
+                            RightAnswer();
+                            myscore = +400;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            myscore = -400;
+                        }
+                        break;
+                    }
+                case 5:
+                    {
+                        Console.WriteLine("A young kung-fu student looking for revange.\n Everytime he dies he grows older");
+                        myanswer = Console.ReadLine();
+                        string AnswerSifu = "what is sifu";
+                        if (myanswer == AnswerSifu)
+                        {
+                            RightAnswer();
+                            myscore = +500;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            myscore = -500;
+                        }
+                        break;
+                    }
             }
         }
-        //the answer for WhereIsTheCharacterFrom
-        static string AnswerHalfLife = "what is half-life";
-        static string AnswerStray = "what is stray";
-        static string AnswerJack = "what is borderlands 2";
-        static string Answer4 = "";
-        static string Answer5 = "";
+      
 
         /// <summary>
         /// The Q/A system for "Horror" category  
         /// </summary>
         static void Horror()
         {
-            
-            Console.WriteLine("");
+            switch (pointcategory)
+            {
+                case 1:
+                    {
+                        Console.WriteLine("")
+                        break;
+                    }
+            }
         }
-        //the answer for WhereIsTheCharacterFrom
-        static string Answer6 = "";
-        static string Answer7 = "";
-        static string Answer8 = "";
-        static  string Answer9 = "";
-        static string Answer10 = "";
-
+       
         /// <summary>
         /// The Q/A system for "Geography" category  
         /// </summary>
@@ -284,7 +313,7 @@ namespace Game_Jeopardy_Emilie
                     {
                         Console.WriteLine("What country has inspired the setting for Black Myth: Wukong?");
                         myanswer = Console.ReadLine();
-
+                        string AnswerWukong = "what is china";
                         if (myanswer == AnswerWukong)
                         {
                             RightAnswer();
@@ -301,7 +330,7 @@ namespace Game_Jeopardy_Emilie
                     {
                         Console.WriteLine("In what country does Assasin's Creed: Mirage?");
                         myanswer = Console.ReadLine();
-
+                        string AnswerMirage = "what is iraq";
                         if (myanswer== AnswerMirage)
                         {
                             RightAnswer();
@@ -314,14 +343,14 @@ namespace Game_Jeopardy_Emilie
                         }
                         break;
                     }
+                case 3:
+                    {
+
+                        break;
+                    }
             }
         }
-        //the answer for WhereIsTheCharacterFrom
-        static string AnswerMirage = "what is iraq";
-        static string AnswerWukong = "what is china";
-        static string Answer13 = "";
-        static string Answer14 = "";
-        static string Answer15 = "";
+        
     }
 }
 
