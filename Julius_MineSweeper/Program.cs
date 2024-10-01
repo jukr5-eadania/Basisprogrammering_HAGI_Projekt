@@ -41,6 +41,7 @@ namespace Julius_MineSweeper
 
         static void Main(string[] args)
         {
+            //Intro loop
             while (gameStart == "y")
             {
                 Console.Clear();
@@ -49,6 +50,7 @@ namespace Julius_MineSweeper
                 Console.WriteLine("Do you wanna play? (y/n)");
                 gameStart = playing = Console.ReadLine();
                 
+                //Game loop
                 while (playing == "y")
                 {
                     Console.Clear();
@@ -223,6 +225,7 @@ namespace Julius_MineSweeper
             int userY = (int)char.GetNumericValue(userInput[1]);
             bool flag = false;
 
+            //Checks if user input contains a f for flag
             foreach (char character in userInput)
             {
                 if (character == 'f')
@@ -230,19 +233,25 @@ namespace Julius_MineSweeper
                     flag = true;
                 }
             }
+
+            //If user input a flag 
             if (flag == true)
             {
+                //If a flag is already in the postion user wanted to put a flag it removes it
                 if (playerMSB[userX, userY] == (int)Spaces.Flag)
                 {
                     playerMSB[userX, userY] = (int)Spaces.Unkown;
                     flags++;
                 }
+                //If there isn't a flag in the postion the user wanted to put a flag it places a flag
                 else
                 {
                     playerMSB[userX, userY] = (int)Spaces.Flag;
                     flags--;
                 }
             }
+
+            //If user didn't input a flag
             else
             {
                 //Checks if player doens't hit a bomb
