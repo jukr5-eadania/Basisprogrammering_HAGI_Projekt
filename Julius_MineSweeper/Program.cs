@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Julius_MineSweeper
 {
@@ -36,72 +37,27 @@ namespace Julius_MineSweeper
         static string userInput = string.Empty;
         static bool playing = true;
         static int flags = 10;
+        static string gameStart = "y";
 
         static void Main(string[] args)
         {
-            CreateNewMSB();
-            Console.WriteLine("Welcome to MineSweeper");
-
-            while (playing)
+            while (gameStart == "y")
             {
-                Console.Clear();
-                Console.WriteLine("Flags: " + flags);
-                WritePlayerMSB();
-                WriteNewMSB();
-                CheckMSBValue();
-            }
-            Console.WriteLine("The program will now terminate");
-            Thread.Sleep(1000);
-        }
+                CreateNewMSB();
+                Console.WriteLine("Welcome to MineSweeper");
+                playing = true;
 
-        /// <summary>
-        /// Writes the MSB that the player will see during play
-        /// </summary>
-        static void WritePlayerMSB()
-        {
-            sideGridNumber = 0;
-            Console.WriteLine("PlayerMSB");
-            Console.WriteLine("    1   2   3   4   5   6   7   8");
-
-            for (int y = 1; y < playerMSB.GetLength(0) - 1; y++)
-            {
-                Console.WriteLine("  * - * - * - * - * - * - * - * - *");
-                Console.Write(sideGrid[sideGridNumber] + " | ");
-                sideGridNumber++;
-                for (int x = 1; x < playerMSB.GetLength(1) - 1; x++)
+                while (playing)
                 {
-                    if (playerMSB[x, y] == (int)Spaces.Unkown)
-                    {
-                        Console.Write("? ");
-                        Console.Write("| ");
-
-                    }
-                    else if (playerMSB[x, y] == (int)Spaces.Flag)
-                    {
-                        Console.Write("F ");
-                        Console.Write("| ");
-                    }
-                    else
-                    {
-                        if (playerMSB[x, y] == (int)Spaces.EmptySpace)
-                        {
-                            Console.Write("  ");
-                            Console.Write("| ");
-                        }
-                        else
-                        {
-                            Console.Write(playerMSB[x, y] + " ");
-                            Console.Write("| ");
-
-                        }
-
-                    }
-
+                    Console.Clear();
+                    Console.WriteLine("Flags: " + flags);
+                    WritePlayerMSB();
+                    CheckMSBValue();
                 }
-                Console.WriteLine();
-
+                Console.WriteLine("Wanna play again? (y/n)");
+                gameStart = Console.ReadLine();
             }
-            Console.WriteLine("  * - * - * - * - * - * - * - * - *");
+
         }
 
         /// <summary>
@@ -167,9 +123,61 @@ namespace Julius_MineSweeper
 
         }
 
+        /// <summary>
+        /// Writes the MSB that the player will see during play
+        /// </summary>
+        static void WritePlayerMSB()
+        {
+            sideGridNumber = 0;
+            Console.WriteLine("PlayerMSB");
+            Console.WriteLine("    1   2   3   4   5   6   7   8");
+
+            for (int y = 1; y < playerMSB.GetLength(0) - 1; y++)
+            {
+                Console.WriteLine("  * - * - * - * - * - * - * - * - *");
+                Console.Write(sideGrid[sideGridNumber] + " | ");
+                sideGridNumber++;
+                for (int x = 1; x < playerMSB.GetLength(1) - 1; x++)
+                {
+                    if (playerMSB[x, y] == (int)Spaces.Unkown)
+                    {
+                        Console.Write("? ");
+                        Console.Write("| ");
+
+                    }
+                    else if (playerMSB[x, y] == (int)Spaces.Flag)
+                    {
+                        Console.Write("F ");
+                        Console.Write("| ");
+                    }
+                    else
+                    {
+                        if (playerMSB[x, y] == (int)Spaces.EmptySpace)
+                        {
+                            Console.Write("  ");
+                            Console.Write("| ");
+                        }
+                        else
+                        {
+                            Console.Write(playerMSB[x, y] + " ");
+                            Console.Write("| ");
+
+                        }
+
+                    }
+
+                }
+                Console.WriteLine();
+
+            }
+            Console.WriteLine("  * - * - * - * - * - * - * - * - *");
+        }
+
+        /// <summary>
+        /// Writes the MSB created in CreateNewMSB (Mainly used for testing
+        /// </summary>
         static void WriteNewMSB()
         {
-            //Writes the new MS board(Mainly used for testing if if the function works)
             sideGridNumber = 0;
             Console.WriteLine("NewMSB");
             Console.WriteLine("    1   2   3   4   5   6   7   8");
