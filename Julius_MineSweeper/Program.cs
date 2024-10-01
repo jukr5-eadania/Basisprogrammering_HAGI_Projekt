@@ -52,6 +52,11 @@ namespace Julius_MineSweeper
                 while (playing == "y")
                 {
                     Console.Clear();
+                    Console.WriteLine("How to play: Use the console to write which fields you want to select like a cordinate system");
+                    Console.WriteLine("Examples: 56, 84 and 37");
+                    Console.WriteLine("To place flags write f after the field you want to select");
+                    Console.WriteLine("Examples: 27f, 12f and 88f");
+                    Console.WriteLine();
                     Console.WriteLine("Flags: " + flags);
                     WritePlayerMSB();
                     CheckMSBValue();
@@ -305,7 +310,6 @@ namespace Julius_MineSweeper
             }
 
         }
-
 
     }
 
