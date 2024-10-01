@@ -70,7 +70,7 @@ namespace Game_Jeopardy_Emilie
                 Console.WriteLine("1. Who is that character   2.Where is that character from   3. Horror   4.Geography   5. Who am I?\n");
                 int choosenAnswer = Convert.ToInt32(Console.ReadLine());
 
-                switch (choosenAnswer)
+                switch (choosenAnswer) //pick the question within the category that was choosen
                 {
                     case 1: //Who is that character
                         {
@@ -204,9 +204,11 @@ namespace Game_Jeopardy_Emilie
                             break;
                         }
                         Console.WriteLine("The one who always saves Zelda");
-                         myanswer = Console.ReadLine();
+                        myanswer = Console.ReadLine();                        
                         string AnswerLink = "who is link";
-                        
+                        myanswer = myanswer.ToLower();
+                        AnswerLink = AnswerLink.ToLower();
+
                         if (myanswer == AnswerLink)
                         {
                             RightAnswer();
@@ -233,6 +235,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("A pink ball with a black hole for a stomach");
                          myanswer = Console.ReadLine();
                         string AnswerKirby = "who is kirby";
+                        myanswer = myanswer.ToLower();
+                        AnswerKirby = AnswerKirby.ToLower();
+
                         if (myanswer == AnswerKirby)
                         {
                             RightAnswer();
@@ -257,6 +262,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("Originally a servant of the Dark Master Malefor,\nshe was the main antagonist in The Legend of Spyro: A New Beginning\nuntil she was defeated and freed by Spyro.");
                          myanswer = Console.ReadLine();
                         string AnswerCynder = "who is cynder";
+                        myanswer = myanswer.ToLower();
+                        AnswerCynder = AnswerCynder.ToLower();
+
                         if (myanswer == AnswerCynder)
                         {
                             RightAnswer();
@@ -281,6 +289,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("He is a student at Shujin Academy\nand a former track star who lives a double life as a Phantom Thief.\nHe is the protagonist's best friend and the Phantom Thieves' charge commander.");
                          myanswer = Console.ReadLine();
                         string AnswerRyuji = "who is ryuji";
+                        myanswer = myanswer.ToLower();
+                        AnswerRyuji = AnswerRyuji.ToLower();
+
                         if (myanswer == AnswerRyuji)
                         {
                             RightAnswer();
@@ -305,6 +316,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("He is a wandering Rito minstrel who will\nplay the accordion and sing an ancient verse to Link,\ntelling him the location of several shrines throughout Hyrule.");
                          myanswer = Console.ReadLine();
                         string AnswerKass = "who is kass";
+                        myanswer = myanswer.ToLower();
+                        AnswerKass = AnswerKass.ToLower();
+
                         if (myanswer == AnswerKass)
                         {
                             RightAnswer();
@@ -339,6 +353,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("The game franchises that introduced Gorden Freeman");
                         myanswer = Console.ReadLine();
                         string AnswerHalfLife = "what is half-life";
+                        myanswer = myanswer.ToLower();
+                        AnswerHalfLife = AnswerHalfLife.ToLower();
+
                         if (myanswer == AnswerHalfLife)
                         {
                             RightAnswer();
@@ -363,6 +380,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("Play as an orange cat that got separated from their family/friends");
                         myanswer = Console.ReadLine();
                         string AnswerStray = "what is stray";
+                        myanswer = myanswer.ToLower();
+                        AnswerStray = AnswerStray.ToLower();
+
                         if (myanswer == AnswerStray)
                         {
                             RightAnswer();
@@ -387,6 +407,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("What game debuted Handsome Jack");
                         myanswer = Console.ReadLine();
                         string AnswerJack = "what is borderlands 2";
+                        myanswer = myanswer.ToLower();
+                        AnswerJack = AnswerJack.ToLower();
+
                         if (myanswer == AnswerJack)
                         {
                             RightAnswer();
@@ -411,6 +434,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("The game where you get introduced to the outcast Aloy");
                         myanswer = Console.ReadLine();
                         string AnswerAloy = "what is horizon zero dawn";
+                        myanswer = myanswer.ToLower();
+                        AnswerAloy = AnswerAloy.ToLower();
+
                         if (myanswer == AnswerAloy)
                         {
                             RightAnswer();
@@ -435,6 +461,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("A young kung-fu student looking for revange.\n Everytime he dies he grows older");
                         myanswer = Console.ReadLine();
                         string AnswerSifu = "what is sifu";
+                        myanswer = myanswer.ToLower();
+                        AnswerSifu = AnswerSifu.ToLower();
+
                         if (myanswer == AnswerSifu)
                         {
                             RightAnswer();
@@ -469,6 +498,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("Space-horror game where player\nis up against (or more like hidding from) a Xenomorph");
                         myanswer = Console.ReadLine();
                         string AnswerAlien = "what is alien: isolation";
+                        myanswer = myanswer.ToLower();
+                        AnswerAlien = AnswerAlien.ToLower();
+
                         if (myanswer == AnswerAlien)
                         {
                             RightAnswer();
@@ -493,6 +525,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("Horror game, developed by Konami, that became\nknown for its dystopian city and psychological elements\nthat included a character named Heather Manson");
                         myanswer = Console.ReadLine();
                         string AnswerSilentHill = "what is silent hill 3";
+                        myanswer = myanswer.ToLower();
+                        AnswerSilentHill = AnswerSilentHill.ToLower();
+
                         if (myanswer == AnswerSilentHill)
                         {
                             RightAnswer();
@@ -517,6 +552,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("A popular post-apocalyptic game that has been into a tv-serie");
                         myanswer = Console.ReadLine();
                         string Answer = "what is the last of us";
+                        myanswer = myanswer.ToLower();
+                        Answer = Answer.ToLower();
+
                         if (myanswer == Answer)
                         {
                             RightAnswer();
@@ -541,6 +579,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("Horror-puzzle game where a tiny child in yellow raincoat\nis trying to escape getting eaten/killed");
                         myanswer = Console.ReadLine();
                         string Answer = "what is little nightmares";
+                        myanswer = myanswer.ToLower();
+                        Answer = Answer.ToLower();
+
                         if (myanswer == Answer)
                         {
                             RightAnswer();
@@ -565,6 +606,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("horror game franchise where your only weapon is a camera ");
                         myanswer = Console.ReadLine();
                         string Answer = "what is fatal frame";
+                        myanswer = myanswer.ToLower();
+                        Answer = Answer.ToLower();
+
                         if (myanswer == Answer)
                         {
                             RightAnswer();
@@ -599,6 +643,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("What country has inspired the setting for Black Myth: Wukong?");
                         myanswer = Console.ReadLine();
                         string AnswerWukong = "what is china";
+                        myanswer = myanswer.ToLower();
+                        AnswerWukong = AnswerWukong.ToLower();
+
                         if (myanswer == AnswerWukong)
                         {
                             RightAnswer();
@@ -623,6 +670,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("In what country does Assasin's Creed: Mirage?");
                         myanswer = Console.ReadLine();
                         string AnswerMirage = "what is iraq";
+                        myanswer = myanswer.ToLower();
+                        AnswerMirage = AnswerMirage.ToLower();
+
                         if (myanswer== AnswerMirage)
                         {
                             RightAnswer();
@@ -647,6 +697,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("In what country does Metal Gear Solid 3: Snake Eaater take place?");
                         myanswer = Console.ReadLine();
                         string Answer = "what is russia";
+                        myanswer = myanswer.ToLower();
+                        Answer = Answer.ToLower();
+
                         if (myanswer == Answer)
                         {
                             RightAnswer();
@@ -671,6 +724,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("What country has inspired Tomb Raider (2014) setting");
                         myanswer = Console.ReadLine();
                         string Answer = "what is japan";
+                        myanswer = myanswer.ToLower();
+                        Answer = Answer.ToLower();
+
                         if (myanswer == Answer)
                         {
                             RightAnswer();
@@ -695,6 +751,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("What country is Resident Evil 4 set in?");
                         myanswer = Console.ReadLine();
                         string Answer = "what is spain";
+                        myanswer = myanswer.ToLower();
+                        Answer = Answer.ToLower();
+
                         if (myanswer == Answer)
                         {
                             RightAnswer();
@@ -728,6 +787,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("I am the one that started the Phantom thieves. I have the abillity to smell treasures.\nBut most importenly i'm NOT a CAT!");
                         myanswer = Console.ReadLine();
                         string Answer = "who is morgana";
+                        myanswer = myanswer.ToLower();
+                        Answer = Answer.ToLower();
+
                         if (myanswer == Answer)
                         {
                             RightAnswer();
@@ -752,6 +814,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("I'm one of the four Champions of Hyrule and the pilot\nof the Divine Beast Vha Medoh");
                         myanswer = Console.ReadLine();
                         string Answer = "who is revali";
+                        myanswer = myanswer.ToLower();
+                        Answer = Answer.ToLower();
+
                         if (myanswer == Answer)
                         {
                             RightAnswer();
@@ -776,6 +841,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("I was kidnapped and incarcerated by Abstergo, a Templar organisation,\nand forced into a machine called Animus to relive\nthe genetic memories og my ancestors");
                         myanswer = Console.ReadLine();
                         string Answer = "who is desmond miles";
+                        myanswer = myanswer.ToLower();
+                        Answer = Answer.ToLower();
+
                         if (myanswer == Answer)
                         {
                             RightAnswer();
@@ -800,6 +868,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("I'm a robot with a SOUL, and i'm the sole tv-star of\nthe Underground. My body was made by Alphys");
                         myanswer = Console.ReadLine();
                         string Answer = "who is mettaton";
+                        myanswer = myanswer.ToLower();
+                        Answer = Answer.ToLower();
+
                         if (myanswer == Answer)
                         {
                             RightAnswer();
@@ -824,6 +895,9 @@ namespace Game_Jeopardy_Emilie
                         Console.WriteLine("I'm a rapping dog");
                         myanswer = Console.ReadLine();
                         string Answer = "who is parappa the rapper";
+                        myanswer = myanswer.ToLower();
+                        Answer = Answer.ToLower();
+
                         if (myanswer == Answer)
                         {
                             RightAnswer();
