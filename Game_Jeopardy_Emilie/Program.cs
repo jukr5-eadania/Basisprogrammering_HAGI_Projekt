@@ -32,7 +32,7 @@ namespace Game_Jeopardy_Emilie
             Console.WriteLine($"Your Score: {points}\n");
 
 
-            
+
             //Ask what category
             //Ask how many points
             //The player should get the question that corrosponds with the choosen points
@@ -44,27 +44,36 @@ namespace Game_Jeopardy_Emilie
 
 
 
-
+            checkCategory[0] = true; checkCategory[1] = true; checkCategory[2] = true; checkCategory[3] = true; checkCategory[4] = true;
             checkQuestion[0] = true; checkQuestion[1] = true; checkQuestion[2] = true; checkQuestion[3] = true; checkQuestion[4] = true;
 
 
             while (playJeopardy)
             {
 
+
                 // tjek om pointcategory er blevet brugt en gang 
                 // start med at sætte alle --- til true så de kan åbnes
                 Console.WriteLine("What Category do you want?");
-                Console.WriteLine("1. Who is that character   2.Where is that character from   3. Horror   4.Geography   5. \n");
+                Console.WriteLine("1. Who is that character   2.Where is that character from   3. Horror   4.Geography   5. Who am I?\n");
                 int choosenAnswer = Convert.ToInt32(Console.ReadLine());
 
                 switch (choosenAnswer)
                 {
                     case 1: //Who is that character
                         {
+                            // if all questions have been used (set to false) close the category
+                            if (checkQuestion[0] == false && checkQuestion[1] == false && checkQuestion[2] == false && checkQuestion[3] == false && checkQuestion[4] == false)
+                            {
+                                Console.WriteLine("you have already tried all the questions in the category\n");
+                                checkCategory[0] = false;
+                                break;
+                            }
+                            
                             Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p");
                             pointcategory = Convert.ToInt32(Console.ReadLine());
                             WhoIsThatCharacter();
-                            
+                                                       
                             break;
                         }
                     case 2: //.Where is that character from
