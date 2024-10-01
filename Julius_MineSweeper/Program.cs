@@ -21,7 +21,8 @@ namespace Julius_MineSweeper
         Seven,
         Eight,
         Bomb,
-        EmptySpace
+        EmptySpace,
+        Flag
     }
 
     internal class Program
@@ -34,6 +35,7 @@ namespace Julius_MineSweeper
         static int sideGridNumber = 0;
         static string userInput = string.Empty;
         static bool playing = true;
+        static int flags = 10;
 
         static void Main(string[] args)
         {
@@ -43,6 +45,7 @@ namespace Julius_MineSweeper
             while (playing)
             {
                 Console.Clear();
+                Console.WriteLine("Flags: " + flags);
                 WritePlayerMSB();
                 WriteNewMSB();
                 CheckMSBValue();
@@ -72,6 +75,11 @@ namespace Julius_MineSweeper
                         Console.Write("? ");
                         Console.Write("| ");
 
+                    }
+                    else if (playerMSB[x, y] == (int)Spaces.Flag)
+                    {
+                        Console.Write("F ");
+                        Console.Write("| ");
                     }
                     else
                     {
@@ -199,71 +207,97 @@ namespace Julius_MineSweeper
             char[] userInput = Console.ReadLine().ToCharArray();
             int userX = (int)char.GetNumericValue(userInput[0]);
             int userY = (int)char.GetNumericValue(userInput[1]);
-            int userPosition = newMSB[userX, userY];
+            bool flag = false;
 
-            //Checks if player doens't hit a bomb
-            if (newMSB[userX, userY] != (int)Spaces.Bomb)
+            foreach (char f in userInput)
             {
-                //Checks if the player hits an unknown space
-                if (newMSB[userX, userY] == (int)Spaces.Unkown)
+                if (userInput.Contains(f))
                 {
-                    //Changes the spot the player hit to an empty space on the player board
-                    playerMSB[userX, userY] = (int)Spaces.EmptySpace;
-
-                    //Checks the 8 surrounding spaces if they are unknown as well and changes them to empty spaces if they are unkown
-                    if (newMSB[userX - 1, userY - 1] == (int)Spaces.Unkown)
-                    {
-                        playerMSB[userX - 1, userY - 1] = (int)Spaces.EmptySpace;
-                    }
-                    if (newMSB[userX, userY - 1] == (int)Spaces.Unkown)
-                    {
-                        playerMSB[userX, userY - 1] = (int)Spaces.EmptySpace;
-                    }
-                    if (newMSB[userX + 1, userY - 1] == (int)Spaces.Unkown)
-                    {
-                        playerMSB[userX + 1, userY - 1] = (int)Spaces.EmptySpace;
-                    }
-                    if (newMSB[userX - 1, userY] == (int)Spaces.Unkown)
-                    {
-                        playerMSB[userX - 1, userY] = (int)Spaces.EmptySpace;
-                    }
-                    if (newMSB[userX + 1, userY] == (int)Spaces.Unkown)
-                    {
-                        playerMSB[userX + 1, userY] = (int)Spaces.EmptySpace;
-                    }
-                    if (newMSB[userX - 1, userY + 1] == (int)Spaces.Unkown)
-                    {
-                        playerMSB[userX - 1, userY + 1] = (int)Spaces.EmptySpace;
-                    }
-                    if (newMSB[userX, userY + 1] == (int)Spaces.Unkown)
-                    {
-                        playerMSB[userX, userY + 1] = (int)Spaces.EmptySpace;
-                    }
-                    if (newMSB[userX + 1, userY + 1] == (int)Spaces.Unkown)
-                    {
-                        playerMSB[userX + 1, userY + 1] = (int)Spaces.EmptySpace;
-                    }
-
+                    flag = true;
                 }
-                //Changes playerboard to reflect how the newMSB looks so the player can see what number they revealed
+            }
+            if (flag == true)
+            {
+                if (playerMSB[userX, userY] == (int)Spaces.Flag)
+                {
+                    playerMSB[userX, userY] = (int)Spaces.Unkown;
+                    flags++;
+                }
                 else
                 {
-                    playerMSB[userX, userY] = newMSB[userX, userY];
+                    playerMSB[userX, userY] = (int)Spaces.Flag;
+                    flags--;
                 }
-
             }
-            //If player hits a bomb end the game and write game over
             else
             {
-                Console.Clear();
-                WriteNewMSB();
-                Console.WriteLine("Game Over");
-                playing = false;
+                //Checks if player doens't hit a bomb
+                if (newMSB[userX, userY] != (int)Spaces.Bomb)
+                {
+                    //Checks if the player hits an unknown space
+                    if (newMSB[userX, userY] == (int)Spaces.Unkown)
+                    {
+                        //Changes the spot the player hit to an empty space on the player board
+                        playerMSB[userX, userY] = (int)Spaces.EmptySpace;
+
+                        //Checks the 8 surrounding spaces if they are unknown as well and changes them to empty spaces if they are unkown
+                        if (newMSB[userX - 1, userY - 1] == (int)Spaces.Unkown)
+                        {
+                            playerMSB[userX - 1, userY - 1] = (int)Spaces.EmptySpace;
+                        }
+                        if (newMSB[userX, userY - 1] == (int)Spaces.Unkown)
+                        {
+                            playerMSB[userX, userY - 1] = (int)Spaces.EmptySpace;
+                        }
+                        if (newMSB[userX + 1, userY - 1] == (int)Spaces.Unkown)
+                        {
+                            playerMSB[userX + 1, userY - 1] = (int)Spaces.EmptySpace;
+                        }
+                        if (newMSB[userX - 1, userY] == (int)Spaces.Unkown)
+                        {
+                            playerMSB[userX - 1, userY] = (int)Spaces.EmptySpace;
+                        }
+                        if (newMSB[userX + 1, userY] == (int)Spaces.Unkown)
+                        {
+                            playerMSB[userX + 1, userY] = (int)Spaces.EmptySpace;
+                        }
+                        if (newMSB[userX - 1, userY + 1] == (int)Spaces.Unkown)
+                        {
+                            playerMSB[userX - 1, userY + 1] = (int)Spaces.EmptySpace;
+                        }
+                        if (newMSB[userX, userY + 1] == (int)Spaces.Unkown)
+                        {
+                            playerMSB[userX, userY + 1] = (int)Spaces.EmptySpace;
+                        }
+                        if (newMSB[userX + 1, userY + 1] == (int)Spaces.Unkown)
+                        {
+                            playerMSB[userX + 1, userY + 1] = (int)Spaces.EmptySpace;
+                        }
+
+                    }
+                    //Changes playerboard to reflect how the newMSB looks so the player can see what number they revealed
+                    else
+                    {
+                        playerMSB[userX, userY] = newMSB[userX, userY];
+                    }
+
+                }
+                //If player hits a bomb end the game and write game over
+                else
+                {
+                    Console.Clear();
+                    WriteNewMSB();
+                    Console.WriteLine("Game Over");
+                    playing = false;
+
+                }
 
             }
 
         }
 
+
     }
 
 }
+
