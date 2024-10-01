@@ -62,8 +62,9 @@ namespace Game_Jeopardy_Emilie
 
             while (playJeopardy)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"Your Score: {myscore}\n");
-
+                Console.ResetColor();
                 // tjek om pointcategory er blevet brugt en gang 
                 // start med at sætte alle --- til true så de kan åbnes
                 Console.WriteLine("What Category do you want?");
