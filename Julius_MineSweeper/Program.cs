@@ -35,7 +35,7 @@ namespace Julius_MineSweeper
         static int[] sideGrid = new int[8] { 1, 2, 3, 4, 5, 6, 7, 8 };
         static int sideGridNumber = 0;
         static string userInput = string.Empty;
-        static bool playing = true;
+        static string playing = "n";
         static int flags = 10;
         static string gameStart = "y";
 
@@ -43,19 +43,20 @@ namespace Julius_MineSweeper
         {
             while (gameStart == "y")
             {
+                Console.Clear();
                 CreateNewMSB();
                 Console.WriteLine("Welcome to MineSweeper");
-                playing = true;
-
-                while (playing)
+                Console.WriteLine("Do you wanna play? (y/n)");
+                gameStart = playing = Console.ReadLine();
+                
+                while (playing == "y")
                 {
                     Console.Clear();
                     Console.WriteLine("Flags: " + flags);
                     WritePlayerMSB();
                     CheckMSBValue();
                 }
-                Console.WriteLine("Wanna play again? (y/n)");
-                gameStart = Console.ReadLine();
+ 
             }
 
         }
@@ -296,8 +297,9 @@ namespace Julius_MineSweeper
                     Console.Clear();
                     WriteNewMSB();
                     Console.WriteLine("Game Over");
-                    playing = false;
-
+                    playing = "n";
+                    Console.WriteLine("Wanna play again? (y/n)");
+                    gameStart = Console.ReadLine();
                 }
 
             }
