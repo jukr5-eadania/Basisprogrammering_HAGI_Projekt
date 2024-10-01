@@ -21,6 +21,7 @@ namespace Game_Jeopardy_Emilie
             int points = 0;
             string input;
             bool playJeopardy = true;
+            string response;
             
             
 
@@ -49,6 +50,7 @@ namespace Game_Jeopardy_Emilie
 
             while (playJeopardy)
             {
+
                 // tjek om pointcategory er blevet brugt en gang 
                 // start med at sætte alle --- til true så de kan åbnes
                 Console.WriteLine("What Category do you want?");
@@ -100,14 +102,24 @@ namespace Game_Jeopardy_Emilie
                         }
 
                 }
+
+                // ask if player wants to play agian.
+                // if yes reset the game. if no close the game
+                Console.WriteLine("your score: " + myscore);
+                Console.WriteLine("\nplay again? (Y/N)");
+                response = Console.ReadLine();
+                response = response.ToUpper();
+                if (response == "Y")
+                {
+                    playJeopardy = true;
+                }
+                else
+                {
+                    playJeopardy = false;
+                }
             }
-            Console.WriteLine("your score: "+myscore);
-
-                    
-
-            
-                        
-            Console.ReadLine();
+            Console.WriteLine("Thanks for playing");           
+            Console.ReadKey();
         }
         static void WrongAnswer()
         {
