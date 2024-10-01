@@ -209,9 +209,9 @@ namespace Julius_MineSweeper
             int userY = (int)char.GetNumericValue(userInput[1]);
             bool flag = false;
 
-            foreach (char f in userInput)
+            foreach (char character in userInput)
             {
-                if (userInput.Contains(f))
+                if (character == 'f')
                 {
                     flag = true;
                 }
