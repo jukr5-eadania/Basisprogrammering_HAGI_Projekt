@@ -11,11 +11,16 @@ namespace Game_Jeopardy_Emilie
         static string myanswer;
         static int pointcategory;
         static int myscore = 0;
+        static bool[] checkCategory = new bool[5];
+        static bool[] checkQuestion = new bool[5];
+        
 
         static void Main(string[] args)
         {
             //varible list
             int points = 0;
+            string input;
+            bool playJeopardy = true;
             
             
 
@@ -25,55 +30,76 @@ namespace Game_Jeopardy_Emilie
             Console.WriteLine("Welcome to Jeopardy!\nHow To Play:\nPick a category by typing the corrosponding number\nof what you want to pick.\nRemember to write: what/who is ...");
             Console.WriteLine($"Your Score: {points}\n");
 
+
+            
             //Ask what category
             //Ask how many points
             //The player should get the question that corrosponds with the choosen points
-            Console.WriteLine("What Category do you want?");
+            /*Console.WriteLine("What Category do you want?");
             Console.WriteLine("1. Who is that character   2.Where is that character from   3. Horror   4.Geography   5. \n");
-            int choosenCategory = Convert.ToInt32(Console.ReadLine());
+            int choosenAnswer = Convert.ToInt32(Console.ReadLine());*/
 
-            switch (choosenCategory)
+            /*int[] ArrayCategory = new int[] { 1, 2, 3, 4, 5 };*/
+
+
+
+
+            checkQuestion[0] = true; checkQuestion[1] = true; checkQuestion[2] = true; checkQuestion[3] = true; checkQuestion[4] = true;
+
+
+            while (playJeopardy)
             {
-                case 1: //Who is that character
-                    {
-                        Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p");
-                        pointcategory = Convert.ToInt32(Console.ReadLine());
-                        WhoIsThatCharacter();
-                        
+                // tjek om pointcategory er blevet brugt en gang 
+                // start med at sætte alle --- til true så de kan åbnes
+                Console.WriteLine("What Category do you want?");
+                Console.WriteLine("1. Who is that character   2.Where is that character from   3. Horror   4.Geography   5. \n");
+                int choosenAnswer = Convert.ToInt32(Console.ReadLine());
 
-                        break;
-                    }
-                case 2: //.Where is that character from
-                    {
-                        Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p");
-                        pointcategory = Convert.ToInt32(Console.ReadLine());
-                        WhereIsTheCharacterFrom();
+                switch (choosenAnswer)
+                {
+                    case 1: //Who is that character
+                        {
+                            Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p");
+                            pointcategory = Convert.ToInt32(Console.ReadLine());
+                            WhoIsThatCharacter();
+                            
+                            break;
+                        }
+                    case 2: //.Where is that character from
+                        {
+                            Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p");
+                            pointcategory = Convert.ToInt32(Console.ReadLine());
+                            WhereIsTheCharacterFrom();
 
-                        break;
-                    }
-                case 3: //Horror
-                    {
-                        Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p");
-                        pointcategory = Convert.ToInt32(Console.ReadLine());
-                        Horror();
+                            break;
+                        }
+                    case 3: //Horror
+                        {
+                            Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p");
+                            pointcategory = Convert.ToInt32(Console.ReadLine());
+                            Horror();
 
-                        break;
-                    }
-                case 4: // Geography
-                    {
-                        Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p");
-                        pointcategory = Convert.ToInt32(Console.ReadLine());
-                        Geography();
+                            break;
+                        }
+                    case 4: // Geography
+                        {
+                            Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p");
+                            pointcategory = Convert.ToInt32(Console.ReadLine());
+                            Geography();
 
-                        break;
-                    }
-                case 5:
-                    {
-                        Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p");
-                        pointcategory = Convert.ToInt32(Console.ReadLine());
+                            break;
+                        }
+                    case 5:// Who am i
+                        {
+                            Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p");
+                            pointcategory = Convert.ToInt32(Console.ReadLine());
+                            WhoAmI();
 
-                        break;
-                    }
+                            break;
+
+                        }
+
+                }
             }
             Console.WriteLine("your score: "+myscore);
 
@@ -105,25 +131,39 @@ namespace Game_Jeopardy_Emilie
             {
                 case 1:
                     {
+                        if (checkQuestion[0] == false)
+                        {
+                            Console.WriteLine("Ups! you have already tried this question\n pick another question");
+                            break;
+                        }
                         Console.WriteLine("The one who always saves Zelda");
                          myanswer = Console.ReadLine();
                         string AnswerLink = "who is link";
+                        
                         if (myanswer == AnswerLink)
                         {
                             RightAnswer();
                             myscore = +100;
+                            
                         }
                         else
                         {
                             WrongAnswer();
                             Console.WriteLine("The answer was:\n" + AnswerLink);
                             myscore = -100;
+                            
                         }
+                        checkQuestion[0] = false;
                         break;
                     }
                 case 2:
                     {
-                        Console.WriteLine("A pink boll with a black hole for a stomach");
+                        if (checkQuestion[1] == false)
+                        {
+                            Console.WriteLine("Ups! you have already tried this question\n pick another question");
+                            break;
+                        }
+                        Console.WriteLine("A pink ball with a black hole for a stomach");
                          myanswer = Console.ReadLine();
                         string AnswerKirby = "who is kirby";
                         if (myanswer == AnswerKirby)
@@ -137,10 +177,16 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("The answer was:\n" + AnswerKirby);
                             myscore = -200;
                         }
+                        checkQuestion[1] = false;
                         break;
                     }
                 case 3:
                     {
+                        if(checkQuestion[2] == false)
+                        {
+                            Console.WriteLine("Ups! you have already tried this question\n pick another question");
+                            break;
+                        }
                         Console.WriteLine("Originally a servant of the Dark Master Malefor,\nshe was the main antagonist in The Legend of Spyro: A New Beginning\nuntil she was defeated and freed by Spyro.");
                          myanswer = Console.ReadLine();
                         string AnswerCynder = "who is cynder";
@@ -155,10 +201,16 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("The answer was:\n" + AnswerCynder);
                             myscore = -300;
                         }
+                        checkQuestion[2] =false;
                         break;
                     }
                 case 4:
                     {
+                        if(checkQuestion[3] == false)
+                        {
+                            Console.WriteLine("Ups! you have already tried this question\n pick another question");
+                            break;
+                        }
                         Console.WriteLine("He is a student at Shujin Academy\nand a former track star who lives a double life as a Phantom Thief.\nHe is the protagonist's best friend and the Phantom Thieves' charge commander.");
                          myanswer = Console.ReadLine();
                         string AnswerRyuji = "who is ryuji";
@@ -173,10 +225,16 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("The answer was:\n" + AnswerRyuji);
                             myscore = -400;
                         }
+                        checkQuestion[3]= false;
                         break;
                     }
                 case 5:
                     {
+                        if(checkQuestion[4] == false)
+                        {
+                            Console.WriteLine("Ups! you have already tried this question\n pick another question");
+                            break;
+                        }
                         Console.WriteLine("He is a wandering Rito minstrel who will\nplay the accordion and sing an ancient verse to Link,\ntelling him the location of several shrines throughout Hyrule.");
                          myanswer = Console.ReadLine();
                         string AnswerKass = "who is kass";
@@ -191,6 +249,7 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("The answer was:\n" + AnswerKass);
                             myscore = -500;
                         }
+                        checkQuestion[4] = false;
                         break;
                     }
             }                        
@@ -496,13 +555,101 @@ namespace Game_Jeopardy_Emilie
                     }
             }
         }
-        static void dfg()
+        /// <summary>
+        /// The Q/A system for "Who am i" category  
+        /// </summary>
+        static void WhoAmI()
         {
             switch (pointcategory)
             {
                 case 1:
                     {
-
+                        Console.WriteLine("I am the one that started the Phantom thieves. I have the abillity to smell treasures.\nBut most importenly i'm NOT a CAT!");
+                        myanswer = Console.ReadLine();
+                        string Answer = "who is morgana";
+                        if (myanswer == Answer)
+                        {
+                            RightAnswer();
+                            myscore = +100;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + Answer);
+                            myscore = -100;
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        Console.WriteLine("I'm one of the four Champions of Hyrule and the pilot\nof the Divine Beast Vha Medoh");
+                        myanswer = Console.ReadLine();
+                        string Answer = "who is revali";
+                        if (myanswer == Answer)
+                        {
+                            RightAnswer();
+                            myscore = +100;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + Answer);
+                            myscore = -100;
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        Console.WriteLine("I was kidnapped and incarcerated by Abstergo, a Templar organisation,\nand forced into a machine called Animus to relive\nthe genetic memories og my ancestors");
+                        myanswer = Console.ReadLine();
+                        string Answer = "who is desmond miles";
+                        if (myanswer == Answer)
+                        {
+                            RightAnswer();
+                            myscore = +100;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + Answer);
+                            myscore = -100;
+                        }
+                        break;
+                    }
+                case 4:
+                    {
+                        Console.WriteLine("I'm a robot with a SOUL, and i'm the sole tv-star of\nthe Underground. My body was made by Alphys");
+                        myanswer = Console.ReadLine();
+                        string Answer = "who is mettaton";
+                        if (myanswer == Answer)
+                        {
+                            RightAnswer();
+                            myscore = +100;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + Answer);
+                            myscore = -100;
+                        }
+                        break;
+                    }
+                case 5:
+                    {
+                        Console.WriteLine("I'm a rapping dog");
+                        myanswer = Console.ReadLine();
+                        string Answer = "who is parappa the rapper";
+                        if (myanswer == Answer)
+                        {
+                            RightAnswer();
+                            myscore = +100;
+                        }
+                        else
+                        {
+                            WrongAnswer();
+                            Console.WriteLine("The answer was:\n" + Answer);
+                            myscore = -100;
+                        }
                         break;
                     }
             }
