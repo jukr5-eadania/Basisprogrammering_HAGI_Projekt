@@ -11,9 +11,83 @@ namespace Chess
         static int xPosSel = 8;
         static int yPosSel = 8;
         static bool pieceSelected = false;
+        static bool playingChess = true;
         static ChessPiece[,] board = new ChessPiece[8, 8];
-        static void Main(string[] args)
+        public static void Main()
         {
+            ResetBoard();
+
+            while (playingChess)
+            {
+                DrawBoard();
+
+                // Moves cursor depending on input
+                switch (Console.ReadKey().Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        {
+                            if (yPos < 7)
+                            {
+                                yPos++;
+                            }
+                            break;
+                        }
+                    case ConsoleKey.DownArrow:
+                        {
+                            if (yPos > 0)
+                            {
+                                yPos--;
+                            }
+                            break;
+                        }
+                    case ConsoleKey.LeftArrow:
+                        {
+                            if (xPos > 0)
+                            {
+                                xPos--;
+                            }
+                            break;
+                        }
+                    case ConsoleKey.RightArrow:
+                        {
+                            if (xPos < 7)
+                            {
+                                xPos++;
+                            }
+                            break;
+                        }
+                    // Selects / moves piece
+                    case ConsoleKey.Enter :
+                        {
+                            MovePiece();
+                            break;
+                        }
+                    // Exits gameloop
+                    case ConsoleKey.Escape:
+                        {
+                            playingChess = false;
+                            break;
+                        }
+                }
+            }
+            // exit to menu goes here
+        }
+        /// <summary>
+        /// Resets the board to the starting position
+        /// </summary>
+        static void ResetBoard()
+        {
+            playingChess = true;
+
+            // Empties board
+            for (int y = 0; y < 8; y++)
+            {
+                for (int x = 0; x < 8; x++)
+                {
+                    board[x, y] = ChessPiece.o;
+                }
+            }
+            // Places pieces
             board[0, 0] = ChessPiece.R;
             board[1, 0] = ChessPiece.N;
             board[2, 0] = ChessPiece.B;
@@ -49,59 +123,6 @@ namespace Chess
             board[5, 7] = ChessPiece.b;
             board[6, 7] = ChessPiece.n;
             board[7, 7] = ChessPiece.r;
-
-
-
-
-            while (true)
-            {
-                DrawBoard();
-
-                switch (Console.ReadKey().Key)
-                {
-                    case ConsoleKey.UpArrow:
-                        {
-                            if (yPos < 7)
-                            {
-                            yPos++;
-                            }
-                            break;
-                        }
-                    case ConsoleKey.DownArrow:
-                        {
-                            if (yPos > 0)
-                            {
-                                yPos--;
-                            }
-                            break;
-                        }
-                    case ConsoleKey.LeftArrow:
-                        {
-                            if (xPos > 0)
-                            {
-                                xPos--;
-                            }
-                            break;
-                        }
-                    case ConsoleKey.RightArrow:
-                        {
-                            if (xPos < 7)
-                            {
-                                xPos++;
-                            }
-                            break;
-                        }
-                    case ConsoleKey.Enter:
-                        {
-                            MovePiece();
-                            break;
-                        }
-                }
-
-
-
-                
-            }
         }
         /// <summary>
         /// Draws the board
@@ -109,13 +130,14 @@ namespace Chess
         static void DrawBoard()
         {
             Console.Clear();
+            
             for (int y = 7; y > -1; y--)
             {
                 Console.WriteLine("* - * - * - * - * - * - * - * - *");
                 Console.Write(y + 1);
                 for (int x = 0; x < 8; x++)
                 {
-
+                    // Highlights the cursor and selected piece
                     if (x == xPos && y == yPos)
                     {
                         Console.BackgroundColor = ConsoleColor.Blue;
@@ -127,20 +149,23 @@ namespace Chess
                         Console.ForegroundColor = ConsoleColor.White;
                     }
 
-
+                    // Draws alternating white and green squares
                     else
                     {
+                        // If number is even
                         if ((x + y) % 2 == 0)
                         {
                             Console.BackgroundColor = ConsoleColor.DarkGreen;
                             Console.ForegroundColor = ConsoleColor.White;
                         }
+                        // If number is odd
                         else
                         {
                             Console.BackgroundColor = ConsoleColor.White;
                             Console.ForegroundColor = ConsoleColor.Black;
                         }
                     }
+                    // Draws pieces. If square is empty, draws a blank square 
                     if ((board[x, y]) != (ChessPiece.o))
                     {
                         Console.Write($" {board[x, y]} ");
@@ -161,7 +186,7 @@ namespace Chess
         static void MovePiece()
         {
             // If no piece is selected, selects a piece
-            if (pieceSelected == false)
+            if (pieceSelected == false && board[xPos, yPos] != ChessPiece.o)
             {
                 xPosSel = xPos;
                 yPosSel = yPos;
@@ -175,7 +200,7 @@ namespace Chess
                 pieceSelected = false;
             }
             // Moves selected piece to new position
-            else
+            else if (pieceSelected == true)
             {
                 board[xPos, yPos] = board[xPosSel, yPosSel];
                 board[xPosSel, yPosSel] = ChessPiece.o;
