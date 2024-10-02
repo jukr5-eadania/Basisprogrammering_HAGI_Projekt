@@ -62,20 +62,52 @@ namespace Game_Jeopardy_Emilie
 
             while (playJeopardy)
             {
+                //virable list
+                string category1 = "1. Who is that character   ";
+                string category2 = "2.Where is that character from   ";
+                string category3 = "3.Horror   ";
+                string category4 = "4.Geography   ";
+                string category5 = "5. Who am I?";
+
+
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"Your Score: {myscore}\n");
                 Console.ResetColor();
                 // tjek om pointcategory er blevet brugt en gang 
                 // start med at sætte alle --- til true så de kan åbnes
                 Console.WriteLine("What Category do you want?");
-                Console.WriteLine("1. Who is that character   2.Where is that character from   3. Horror   4.Geography   5. Who am I?\n");
+                
+                //if all questions for the category have been used, remove the category from the choice list
+                if (checkCategory[0] == false)
+                {
+                    category1 = "1. CLOSED   ";
+                }
+                if (checkCategory[1] == false)
+                {
+                    category2 = "2. CLOSED   ";
+                }
+                if (checkCategory[2] == false)
+                {
+                    category3 = "3. CLOSED   ";
+                }
+                if (checkCategory[3] == false)
+                {
+                    category4 = "4. CLOSED   ";
+                }
+                if (checkCategory[4] == false)
+                {
+                    category5 = "5. CLOSED   ";
+                }
+
+                // the list of categories
+                Console.WriteLine($"{category1}{category2}{category3}{category4}{category5}\n");
                 int choosenAnswer = Convert.ToInt32(Console.ReadLine());
 
                 switch (choosenAnswer) //pick the question within the category that was choosen
                 {
                     case 1: //Who is that character
                         {
-                            // if all questions have been used (set to false) close the category
+                            // if you press the number for the category even if it is not there you get error message
                             if (checkQuestion1[0] == false && checkQuestion1[1] == false && checkQuestion1[2] == false && checkQuestion1[3] == false && checkQuestion1[4] == false)
                             {
                                 Console.WriteLine("you have already tried all the questions in the category\n");
@@ -86,13 +118,21 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p\n");
                             pointcategory = Convert.ToInt32(Console.ReadLine());
                             WhoIsThatCharacter();
-                             
                             
+                            // if all questions have been used (set to false) close the category
+                            if (checkQuestion1[0] == false && checkQuestion1[1] == false && checkQuestion1[2] == false && checkQuestion1[3] == false && checkQuestion1[4] == false)
+                            {                                
+                                checkCategory[0] = false;
+                                break;
+                            }
+
+
+
                             break;
                         }
                     case 2: //.Where is that character from
                         {
-                            // if all questions have been used (set to false) close the category
+                            // if you press the number for the category even if it is not there you get error message
                             if (checkQuestion2[0] == false && checkQuestion2[1] == false && checkQuestion2[2] == false && checkQuestion2[3] == false && checkQuestion2[4] == false)
                             {
                                 Console.WriteLine("you have already tried all the questions in the category\n");
@@ -103,11 +143,17 @@ namespace Game_Jeopardy_Emilie
                             pointcategory = Convert.ToInt32(Console.ReadLine());
                             WhereIsTheCharacterFrom();
 
+                            // if all questions have been used (set to false) close the category
+                            if (checkQuestion1[0] == false && checkQuestion1[1] == false && checkQuestion1[2] == false && checkQuestion1[3] == false && checkQuestion1[4] == false)
+                            {
+                                checkCategory[1] = false;
+                                break;
+                            }
                             break;
                         }
                     case 3: //Horror
                         {
-                            // if all questions have been used (set to false) close the category
+                            // if you press the number for the category even if it is not there you get error message
                             if (checkQuestion3[0] == false && checkQuestion3[1] == false && checkQuestion3[2] == false && checkQuestion3[3] == false && checkQuestion3[4] == false)
                             {
                                 Console.WriteLine("you have already tried all the questions in the category\n");
@@ -118,11 +164,17 @@ namespace Game_Jeopardy_Emilie
                             pointcategory = Convert.ToInt32(Console.ReadLine());
                             Horror();
 
+                            // if all questions have been used (set to false) close the category
+                            if (checkQuestion1[0] == false && checkQuestion1[1] == false && checkQuestion1[2] == false && checkQuestion1[3] == false && checkQuestion1[4] == false)
+                            {
+                                checkCategory[2] = false;
+                                break;
+                            }
                             break;
                         }
                     case 4: // Geography
                         {
-                            // if all questions have been used (set to false) close the category
+                            // if you press the number for the category even if it is not there you get error message
                             if (checkQuestion4[0] == false && checkQuestion4[1] == false && checkQuestion4[2] == false && checkQuestion4[3] == false && checkQuestion4[4] == false)
                             {
                                 Console.WriteLine("you have already tried all the questions in the category\n");
@@ -133,11 +185,17 @@ namespace Game_Jeopardy_Emilie
                             pointcategory = Convert.ToInt32(Console.ReadLine());
                             Geography();
 
+                            // if all questions have been used (set to false) close the category
+                            if (checkQuestion1[0] == false && checkQuestion1[1] == false && checkQuestion1[2] == false && checkQuestion1[3] == false && checkQuestion1[4] == false)
+                            {
+                                checkCategory[3] = false;
+                                break;
+                            }
                             break;
                         }
                     case 5:// Who am i
                         {
-                            // if all questions have been used (set to false) close the category
+                            // if you press the number for the category even if it is not there you get error message
                             if (checkQuestion5[0] == false && checkQuestion5[1] == false && checkQuestion5[2] == false && checkQuestion5[3] == false && checkQuestion5[4] == false)
                             {
                                 Console.WriteLine("you have already tried all the questions in the category\n");
@@ -148,6 +206,12 @@ namespace Game_Jeopardy_Emilie
                             pointcategory = Convert.ToInt32(Console.ReadLine());
                             WhoAmI();
 
+                            // if all questions have been used (set to false) close the category
+                            if (checkQuestion1[0] == false && checkQuestion1[1] == false && checkQuestion1[2] == false && checkQuestion1[3] == false && checkQuestion1[4] == false)
+                            {
+                                checkCategory[4] = false;
+                                break;
+                            }
                             break;
 
                         }
@@ -915,7 +979,7 @@ namespace Game_Jeopardy_Emilie
                     }
             }
         }
-        
+
     }
 }
 
