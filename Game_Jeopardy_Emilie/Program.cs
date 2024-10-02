@@ -159,7 +159,7 @@ namespace Game_Jeopardy_Emilie
                 {
                     // ask if player wants to play agian.
                     // if yes reset the game. if no close the game
-                    Console.WriteLine("your score: " + myscore);
+                    Console.WriteLine($"Congratulation! you scored: {myscore}p");
                     Console.WriteLine("\nplay again? (Y/N)");
                     response = Console.ReadLine();
                     response = response.ToUpper();
