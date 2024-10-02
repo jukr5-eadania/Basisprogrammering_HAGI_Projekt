@@ -38,6 +38,9 @@ namespace Julius_MineSweeper
         static string playing = "n";
         static int flags = 10;
         static string gameStart = "y";
+        static bool win;
+        static int numFlagSpaces;
+        static int numBombSpaces;
 
         static void Main(string[] args)
         {
@@ -45,27 +48,37 @@ namespace Julius_MineSweeper
             while (gameStart == "y")
             {
                 Console.Clear();
+                Array.Clear(playerMSB, 0, playerMSB.Length);
+                Array.Clear(newMSB, 0, playerMSB.Length);
                 CreateNewMSB();
                 Console.WriteLine("Welcome to MineSweeper");
                 Console.WriteLine("Do you wanna play? (y/n)");
                 gameStart = playing = Console.ReadLine();
-                
+
                 //Game loop
-                while (playing == "y")
+                while (playing == "y" && win == false)
                 {
                     Console.Clear();
+                    Console.WriteLine("bombspaces" + numBombSpaces +"Flagspaces" + numFlagSpaces);
                     Console.WriteLine("How to play: Use the console to write which fields you want to select like a cordinate system");
                     Console.WriteLine("Examples: 56, 84 and 37");
                     Console.WriteLine("To place flags write f after the field you want to select");
                     Console.WriteLine("Examples: 27f, 12f and 88f");
                     Console.WriteLine();
                     Console.WriteLine("Flags: " + flags);
+                    WriteNewMSB();
                     WritePlayerMSB();
                     CheckMSBValue();
+                    WinCondition();
                 }
 
-                //Create a win condition
- 
+                if (win)
+                {
+                    Console.WriteLine("You Won!");
+                    Console.ReadLine();
+
+                }
+
             }
 
         }
@@ -76,11 +89,12 @@ namespace Julius_MineSweeper
         static void CreateNewMSB()
         {
             //For loop that places 10 bombs in random spaces on the array
-            for (int a = 0; a < 11; a++)
+            for (int a = 0; a < 10; a++)
             {
                 int rndX = rnd.Next(1, 9);
                 int rndY = rnd.Next(1, 9);
                 newMSB[rndX, rndY] = (int)Spaces.Bomb;
+                numBombSpaces++;
             }
 
             //For loop that loops through all numbers on the array to check for bombs in the surrounding 8 fields of the field its currently on
@@ -244,12 +258,14 @@ namespace Julius_MineSweeper
                 {
                     playerMSB[userX, userY] = (int)Spaces.Unkown;
                     flags++;
+                    numFlagSpaces++;
                 }
                 //If there isn't a flag in the postion the user wanted to put a flag it places a flag
                 else
                 {
                     playerMSB[userX, userY] = (int)Spaces.Flag;
                     flags--;
+                    numFlagSpaces--;
                 }
             }
 
@@ -322,7 +338,17 @@ namespace Julius_MineSweeper
 
         }
 
+        /// <summary>
+        /// Checks if the player has won
+        /// </summary>
+        static void WinCondition()
+        {
+           if (numFlagSpaces == numBombSpaces)
+            {
+                playing = "n";
+                win = true;
+            }
+        }
     }
-
 }
 
