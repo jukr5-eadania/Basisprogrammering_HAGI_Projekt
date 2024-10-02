@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -87,7 +88,7 @@ namespace Julius_MineSweeper
         static void CreateNewMSB()
         {
             //For loop that places 10 bombs in random spaces on the array
-            for (int a = 0; a < 10; a++)
+            for (int a = 0; a < 3; a++)
             {
                 int rndX = rnd.Next(0, 8);
                 int rndY = rnd.Next(0, 8);
@@ -366,106 +367,253 @@ namespace Julius_MineSweeper
         static void RemoveEmptySpaces()
         {
             //Changes the spot the player hit to an empty space on the player board
-            playerMSB[userX, userY] = (int)Spaces.EmptySpace;
-            numUnknownSpaces--;
+            Console.Clear();
+            WritePlayerMSB();
+            if (playerMSB[userX, userY] != (int)Spaces.EmptySpace)
+            {
+                playerMSB[userX, userY] = (int)Spaces.EmptySpace;
+                numUnknownSpaces--;
 
-            //Checks the 8 surrounding spaces if they are unknown as well and changes them to empty spaces if they are unkown
+            }
+
             try
             {
-                if (newMSB[userX - 1, userY - 1] == (int)Spaces.Unkown)
+                if (playerMSB[userX - 1, userY - 1] != (int)Spaces.EmptySpace)
                 {
-                    playerMSB[userX - 1, userY - 1] = (int)Spaces.EmptySpace;
-                    numUnknownSpaces--;
+                    if (newMSB[userX - 1, userY - 1] == (int)Spaces.Unkown)
+                    {
+                        userX -= 1;
+                        userY -= 1;
+                        RemoveEmptySpaces();
+                    }
+
                 }
             }
             catch
             {
 
             }
+
             try
             {
-                if (newMSB[userX, userY - 1] == (int)Spaces.Unkown)
+                if (playerMSB[userX, userY - 1] != (int)Spaces.EmptySpace)
                 {
-                    playerMSB[userX, userY - 1] = (int)Spaces.EmptySpace;
-                    numUnknownSpaces--;
+                    if (newMSB[userX, userY - 1] == (int)Spaces.Unkown)
+                    {
+                        userY -= 1;
+                        RemoveEmptySpaces();
+                    }
+
                 }
             }
             catch
             {
 
             }
+
             try
             {
-                if (newMSB[userX + 1, userY - 1] == (int)Spaces.Unkown)
+                if (playerMSB[userX + 1, userY - 1] != (int)Spaces.EmptySpace)
                 {
-                    playerMSB[userX + 1, userY - 1] = (int)Spaces.EmptySpace;
-                    numUnknownSpaces--;
+                    if (newMSB[userX + 1, userY - 1] == (int)Spaces.Unkown)
+                    {
+                        userX += 1;
+                        userY -= 1;
+                        RemoveEmptySpaces();
+                    }
+
                 }
             }
             catch
             {
 
             }
+
             try
             {
-                if (newMSB[userX - 1, userY] == (int)Spaces.Unkown)
+                if (playerMSB[userX - 1, userY] != (int)Spaces.EmptySpace)
                 {
-                    playerMSB[userX - 1, userY] = (int)Spaces.EmptySpace;
-                    numUnknownSpaces--;
+                    if (newMSB[userX - 1, userY] == (int)Spaces.Unkown)
+                    {
+                        userX -= 1;
+                        RemoveEmptySpaces();
+                    }
+
                 }
             }
             catch
             {
 
             }
+
             try
             {
-                if (newMSB[userX + 1, userY] == (int)Spaces.Unkown)
+                if (playerMSB[userX + 1, userY] != (int)Spaces.EmptySpace)
                 {
-                    playerMSB[userX + 1, userY] = (int)Spaces.EmptySpace;
-                    numUnknownSpaces--;
+                    if (newMSB[userX + 1, userY] == (int)Spaces.Unkown)
+                    {
+                        userX += 1;
+                        RemoveEmptySpaces();
+                    }
+
                 }
             }
             catch
             {
 
             }
+
             try
             {
-                if (newMSB[userX - 1, userY + 1] == (int)Spaces.Unkown)
+                if (playerMSB[userX - 1, userY + 1] != (int)Spaces.EmptySpace)
                 {
-                    playerMSB[userX - 1, userY + 1] = (int)Spaces.EmptySpace;
-                    numUnknownSpaces--;
+                    if (newMSB[userX - 1, userY + 1] == (int)Spaces.Unkown)
+                    {
+                        userX -= 1;
+                        userY += 1;
+                        RemoveEmptySpaces();
+                    }
+
                 }
             }
             catch
             {
 
             }
+
             try
             {
-                if (newMSB[userX, userY + 1] == (int)Spaces.Unkown)
+                if (playerMSB[userX, userY + 1] != (int)Spaces.EmptySpace)
                 {
-                    playerMSB[userX, userY + 1] = (int)Spaces.EmptySpace;
-                    numUnknownSpaces--;
+                    if (newMSB[userX, userY + 1] == (int)Spaces.Unkown)
+                    {
+                        userY += 1;
+                        RemoveEmptySpaces();
+                    }
+
                 }
             }
             catch
             {
 
             }
+
             try
             {
-                if (newMSB[userX + 1, userY + 1] == (int)Spaces.Unkown)
+                if (playerMSB[userX + 1, userY + 1] != (int)Spaces.EmptySpace)
                 {
-                    playerMSB[userX + 1, userY + 1] = (int)Spaces.EmptySpace;
-                    numUnknownSpaces--;
+                    if (newMSB[userX + 1, userY + 1] == (int)Spaces.Unkown)
+                    {
+                        userX += 1;
+                        userY += 1;
+                        RemoveEmptySpaces();
+                    }
+
                 }
             }
             catch
             {
 
             }
+
+
+            ////Checks the 8 surrounding spaces if they are unknown as well and changes them to empty spaces if they are unkown
+            //try
+            //{
+            //    if (newMSB[userX - 1, userY - 1] == (int)Spaces.Unkown)
+            //    {
+            //        playerMSB[userX - 1, userY - 1] = (int)Spaces.EmptySpace;
+            //        numUnknownSpaces--;
+            //    }
+            //}
+            //catch
+            //{
+
+            //}
+            //try
+            //{
+            //    if (newMSB[userX, userY - 1] == (int)Spaces.Unkown)
+            //    {
+            //        playerMSB[userX, userY - 1] = (int)Spaces.EmptySpace;
+            //        numUnknownSpaces--;
+            //    }
+            //}
+            //catch
+            //{
+
+            //}
+            //try
+            //{
+            //    if (newMSB[userX + 1, userY - 1] == (int)Spaces.Unkown)
+            //    {
+            //        playerMSB[userX + 1, userY - 1] = (int)Spaces.EmptySpace;
+            //        numUnknownSpaces--;
+            //    }
+            //}
+            //catch
+            //{
+
+            //}
+            //try
+            //{
+            //    if (newMSB[userX - 1, userY] == (int)Spaces.Unkown)
+            //    {
+            //        playerMSB[userX - 1, userY] = (int)Spaces.EmptySpace;
+            //        numUnknownSpaces--;
+            //    }
+            //}
+            //catch
+            //{
+
+            //}
+            //try
+            //{
+            //    if (newMSB[userX + 1, userY] == (int)Spaces.Unkown)
+            //    {
+            //        playerMSB[userX + 1, userY] = (int)Spaces.EmptySpace;
+            //        numUnknownSpaces--;
+            //    }
+            //}
+            //catch
+            //{
+
+            //}
+            //try
+            //{
+            //    if (newMSB[userX - 1, userY + 1] == (int)Spaces.Unkown)
+            //    {
+            //        playerMSB[userX - 1, userY + 1] = (int)Spaces.EmptySpace;
+            //        numUnknownSpaces--;
+            //    }
+            //}
+            //catch
+            //{
+
+            //}
+            //try
+            //{
+            //    if (newMSB[userX, userY + 1] == (int)Spaces.Unkown)
+            //    {
+            //        playerMSB[userX, userY + 1] = (int)Spaces.EmptySpace;
+            //        numUnknownSpaces--;
+            //    }
+            //}
+            //catch
+            //{
+
+            //}
+            //try
+            //{
+            //    if (newMSB[userX + 1, userY + 1] == (int)Spaces.Unkown)
+            //    {
+            //        playerMSB[userX + 1, userY + 1] = (int)Spaces.EmptySpace;
+            //        numUnknownSpaces--;
+            //    }
+            //}
+            //catch
+            //{
+
+            //}
         }
 
         /// <summary>
