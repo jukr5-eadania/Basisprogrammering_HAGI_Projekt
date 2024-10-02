@@ -77,7 +77,7 @@ namespace Game_Jeopardy_Emilie
                 // start med at sætte alle --- til true så de kan åbnes
                 Console.WriteLine("What Category do you want?");
                 
-                //if all questions for the category have been used, remove the category from the choice list
+                //if all questions for the category have been used, close the category from the choice list
                 if (checkCategory[0] == false)
                 {
                     category1 = "1. CLOSED   ";
