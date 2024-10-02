@@ -41,7 +41,6 @@ namespace Julius_MineSweeper
         static string gameStart = "y";
         static bool win;
         static int numUnknownSpaces;
-        static int numBombSpaces;
         static int userX;
         static int userY;
 
@@ -89,12 +88,11 @@ namespace Julius_MineSweeper
         static void CreateNewMSB()
         {
             //For loop that places 10 bombs in random spaces on the array
-            for (int a = 0; a < 3; a++)
+            for (int a = 0; a < 10; a++)
             {
                 int rndX = rnd.Next(0, 8);
                 int rndY = rnd.Next(0, 8);
                 newMSB[rndX, rndY] = (int)Spaces.Bomb;
-                numBombSpaces++;
             }
 
             //For loop that loops through all numbers on the array to check for bombs in the surrounding 8 fields of the field its currently on
@@ -212,7 +210,7 @@ namespace Julius_MineSweeper
         {
             sideGridNumber = 0;
             Console.WriteLine("Flags: " + flags);
-            Console.WriteLine("numBombs" + numBombSpaces + "numUnknown" + numUnknownSpaces);
+            Console.WriteLine("numUnknown" + numUnknownSpaces);
             Console.WriteLine("PlayerMSB");
             Console.WriteLine("    1   2   3   4   5   6   7   8");
 
@@ -623,7 +621,7 @@ namespace Julius_MineSweeper
         /// </summary>
         static void WinCondition()
         {
-            if (numUnknownSpaces == numBombSpaces)
+            if (numUnknownSpaces == 0)
             {
                 playing = "n";
                 win = true;
