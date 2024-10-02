@@ -69,6 +69,7 @@ namespace Julius_MineSweeper
                     WinCondition();
                 }
 
+                //If the player wins
                 if (win)
                 {
                     Console.Clear();
@@ -376,6 +377,7 @@ namespace Julius_MineSweeper
 
             }
 
+            //Checks the 8 nearby spots if they haven't been cleared and if they are an empty space
             try
             {
                 if (playerMSB[userX - 1, userY - 1] != (int)Spaces.EmptySpace)
