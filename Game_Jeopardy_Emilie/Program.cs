@@ -101,9 +101,9 @@ namespace Game_Jeopardy_Emilie
 
                 // the list of categories
                 Console.WriteLine($"{category1}{category2}{category3}{category4}{category5}\n");
-                int choosenAnswer = Convert.ToInt32(Console.ReadLine());
+                int chosenAnswer = Convert.ToInt32(Console.ReadLine());
 
-                switch (choosenAnswer) //pick the question within the category that was choosen
+                switch (chosenAnswer) //pick the question within the category that was chosen
                 {
                     case 1: //Who is that character
                         {
@@ -125,9 +125,6 @@ namespace Game_Jeopardy_Emilie
                                 checkCategory[0] = false;
                                 break;
                             }
-
-
-
                             break;
                         }
                     case 2: //.Where is that character from
