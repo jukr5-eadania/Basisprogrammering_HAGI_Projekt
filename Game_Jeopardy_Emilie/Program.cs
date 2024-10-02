@@ -103,6 +103,7 @@ namespace Game_Jeopardy_Emilie
                             
                             Console.WriteLine("What question do you want\n 1: 100p   2: 200p   3: 300p   4: 400p   5: 500p\n");
                             pointcategory = Convert.ToInt32(Console.ReadLine());
+                            //if you forget to write something                            
                             WhoIsThatCharacter();
                             
                             // if all questions have been used (set to false) close the category
@@ -127,7 +128,7 @@ namespace Game_Jeopardy_Emilie
                             WhereIsTheCharacterFrom();
 
                             // if all questions have been used (set to false) close the category
-                            if (checkQuestion1[0] == false && checkQuestion1[1] == false && checkQuestion1[2] == false && checkQuestion1[3] == false && checkQuestion1[4] == false)
+                            if (checkQuestion2[0] == false && checkQuestion2[1] == false && checkQuestion2[2] == false && checkQuestion2[3] == false && checkQuestion2[4] == false)
                             {
                                 checkCategory[1] = false;
                                 break;
@@ -148,7 +149,7 @@ namespace Game_Jeopardy_Emilie
                             Horror();
 
                             // if all questions have been used (set to false) close the category
-                            if (checkQuestion1[0] == false && checkQuestion1[1] == false && checkQuestion1[2] == false && checkQuestion1[3] == false && checkQuestion1[4] == false)
+                            if (checkQuestion3[0] == false && checkQuestion3[1] == false && checkQuestion3[2] == false && checkQuestion3[3] == false && checkQuestion3[4] == false)
                             {
                                 checkCategory[2] = false;
                                 break;
@@ -169,7 +170,7 @@ namespace Game_Jeopardy_Emilie
                             Geography();
 
                             // if all questions have been used (set to false) close the category
-                            if (checkQuestion1[0] == false && checkQuestion1[1] == false && checkQuestion1[2] == false && checkQuestion1[3] == false && checkQuestion1[4] == false)
+                            if (checkQuestion4[0] == false && checkQuestion4[1] == false && checkQuestion4[2] == false && checkQuestion4[3] == false && checkQuestion4[4] == false)
                             {
                                 checkCategory[3] = false;
                                 break;
@@ -190,7 +191,7 @@ namespace Game_Jeopardy_Emilie
                             WhoAmI();
 
                             // if all questions have been used (set to false) close the category
-                            if (checkQuestion1[0] == false && checkQuestion1[1] == false && checkQuestion1[2] == false && checkQuestion1[3] == false && checkQuestion1[4] == false)
+                            if (checkQuestion5[0] == false && checkQuestion5[1] == false && checkQuestion5[2] == false && checkQuestion5[3] == false && checkQuestion5[4] == false)
                             {
                                 checkCategory[4] = false;
                                 break;
@@ -206,7 +207,7 @@ namespace Game_Jeopardy_Emilie
                 {
                     // ask if player wants to play agian.
                     // if yes reset the game. if no close the game
-                    Console.WriteLine($"Congratulation! you scored: {myscore}p");
+                    Console.WriteLine($"\n\nCongratulation! you scored: {myscore}p");
                     Console.WriteLine("\nplay again? (Y/N)");
                     response = Console.ReadLine();
                     response = response.ToUpper();
