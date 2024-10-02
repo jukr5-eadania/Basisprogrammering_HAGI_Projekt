@@ -30,16 +30,16 @@ namespace Julius_MineSweeper
     {
         //Define variables and arrays
         static Random rnd = new Random();
-        static int[,] newMSB = new int[10, 10];
-        static int[,] playerMSB = new int[10, 10];
+        static int[,] newMSB = new int[8, 8];
+        static int[,] playerMSB = new int[8, 8];
         static int[] sideGrid = new int[8] { 1, 2, 3, 4, 5, 6, 7, 8 };
         static int sideGridNumber = 0;
         static string userInput = string.Empty;
         static string playing = "n";
         static int flags = 10;
         static string gameStart = "y";
-        static bool win = true;
-        static int numFlagSpaces;
+        static bool win;
+        static int numUnknownSpaces;
         static int numBombSpaces;
 
         static void Main(string[] args)
@@ -68,6 +68,8 @@ namespace Julius_MineSweeper
 
                 if (win)
                 {
+                    Console.Clear();
+                    WritePlayerMSB();
                     Console.WriteLine("You Won!");
                     Console.ReadLine();
 
@@ -85,54 +87,112 @@ namespace Julius_MineSweeper
             //For loop that places 10 bombs in random spaces on the array
             for (int a = 0; a < 10; a++)
             {
-                int rndX = rnd.Next(1, 9);
-                int rndY = rnd.Next(1, 9);
+                int rndX = rnd.Next(0, 8);
+                int rndY = rnd.Next(0, 8);
                 newMSB[rndX, rndY] = (int)Spaces.Bomb;
                 numBombSpaces++;
             }
 
             //For loop that loops through all numbers on the array to check for bombs in the surrounding 8 fields of the field its currently on
             //and assigns a number to that field based on it
-            for (int y = 1; y < newMSB.GetLength(0) - 1; y++)
+            for (int y = 0; y < newMSB.GetLength(0); y++)
             {
-                for (int x = 1; x < newMSB.GetLength(1) - 1; x++)
+                for (int x = 0; x < newMSB.GetLength(1); x++)
                 {
                     if (newMSB[x, y] != (int)Spaces.Bomb)
                     {
                         int bombs = 0;
-                        if (newMSB[x - 1, y - 1] == (int)Spaces.Bomb)
+                        try
                         {
-                            bombs++;
+                            if (newMSB[x - 1, y - 1] == (int)Spaces.Bomb)
+                            {
+                                bombs++;
+                            }
                         }
-                        if (newMSB[x, y - 1] == (int)Spaces.Bomb)
+                        catch
                         {
-                            bombs++;
+
                         }
-                        if (newMSB[x + 1, y - 1] == (int)Spaces.Bomb)
+
+                        try
                         {
-                            bombs++;
+                            if (newMSB[x, y - 1] == (int)Spaces.Bomb)
+                            {
+                                bombs++;
+                            }
                         }
-                        if (newMSB[x - 1, y] == (int)Spaces.Bomb)
+                        catch
                         {
-                            bombs++;
+
                         }
-                        if (newMSB[x + 1, y] == (int)Spaces.Bomb)
+                        try
                         {
-                            bombs++;
+                            if (newMSB[x + 1, y - 1] == (int)Spaces.Bomb)
+                            {
+                                bombs++;
+                            }
                         }
-                        if (newMSB[x - 1, y + 1] == (int)Spaces.Bomb)
+                        catch
                         {
-                            bombs++;
+
                         }
-                        if (newMSB[x, y + 1] == (int)Spaces.Bomb)
+                        try
                         {
-                            bombs++;
+                            if (newMSB[x - 1, y] == (int)Spaces.Bomb)
+                            {
+                                bombs++;
+                            }
                         }
-                        if (newMSB[x + 1, y + 1] == (int)Spaces.Bomb)
+                        catch
                         {
-                            bombs++;
+
+                        }
+                        try
+                        {
+                            if (newMSB[x + 1, y] == (int)Spaces.Bomb)
+                            {
+                                bombs++;
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                        try
+                        {
+                            if (newMSB[x - 1, y + 1] == (int)Spaces.Bomb)
+                            {
+                                bombs++;
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                        try
+                        {
+                            if (newMSB[x, y + 1] == (int)Spaces.Bomb)
+                            {
+                                bombs++;
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                        try
+                        {
+                            if (newMSB[x + 1, y + 1] == (int)Spaces.Bomb)
+                            {
+                                bombs++;
+                            }
+                        }
+                        catch
+                        {
+
                         }
                         newMSB[x, y] = (int)((Spaces)bombs);
+                        numUnknownSpaces++;
                     }
 
                 }
@@ -148,15 +208,16 @@ namespace Julius_MineSweeper
         {
             sideGridNumber = 0;
             Console.WriteLine("Flags: " + flags);
+            Console.WriteLine("numBombs" + numBombSpaces + "numUnknown" + numUnknownSpaces);
             Console.WriteLine("PlayerMSB");
             Console.WriteLine("    1   2   3   4   5   6   7   8");
 
-            for (int y = 1; y < playerMSB.GetLength(0) - 1; y++)
+            for (int y = 0; y < playerMSB.GetLength(0); y++)
             {
                 Console.WriteLine("  * - * - * - * - * - * - * - * - *");
                 Console.Write(sideGrid[sideGridNumber] + " | ");
                 sideGridNumber++;
-                for (int x = 1; x < playerMSB.GetLength(1) - 1; x++)
+                for (int x = 0; x < playerMSB.GetLength(1); x++)
                 {
                     if (playerMSB[x, y] == (int)Spaces.Unkown)
                     {
@@ -200,12 +261,12 @@ namespace Julius_MineSweeper
             sideGridNumber = 0;
             Console.WriteLine("NewMSB");
             Console.WriteLine("    1   2   3   4   5   6   7   8");
-            for (int y = 1; y < newMSB.GetLength(0) - 1; y++)
+            for (int y = 0; y < newMSB.GetLength(0); y++)
             {
                 Console.WriteLine("  * - * - * - * - * - * - * - * - *");
                 Console.Write(sideGrid[sideGridNumber] + " | ");
                 sideGridNumber++;
-                for (int x = 1; x < newMSB.GetLength(1) - 1; x++)
+                for (int x = 0; x < newMSB.GetLength(1); x++)
                 {
                     if (newMSB[x, y] != (int)Spaces.Unkown)
                     {
@@ -232,8 +293,8 @@ namespace Julius_MineSweeper
         {
             //Assign variables
             char[] userInput = Console.ReadLine().ToCharArray();
-            int userX = (int)char.GetNumericValue(userInput[0]);
-            int userY = (int)char.GetNumericValue(userInput[1]);
+            int userX = (int)char.GetNumericValue(userInput[0]) - 1;
+            int userY = (int)char.GetNumericValue(userInput[1]) - 1;
             bool flag = false;
 
             //Checks if user input contains a f for flag
@@ -253,14 +314,12 @@ namespace Julius_MineSweeper
                 {
                     playerMSB[userX, userY] = (int)Spaces.Unkown;
                     flags++;
-                    numFlagSpaces++;
                 }
                 //If there isn't a flag in the postion the user wanted to put a flag it places a flag
                 else
                 {
                     playerMSB[userX, userY] = (int)Spaces.Flag;
                     flags--;
-                    numFlagSpaces--;
                 }
             }
 
@@ -275,39 +334,104 @@ namespace Julius_MineSweeper
                     {
                         //Changes the spot the player hit to an empty space on the player board
                         playerMSB[userX, userY] = (int)Spaces.EmptySpace;
+                        numUnknownSpaces--;
 
                         //Checks the 8 surrounding spaces if they are unknown as well and changes them to empty spaces if they are unkown
-                        if (newMSB[userX - 1, userY - 1] == (int)Spaces.Unkown)
+                        try
                         {
-                            playerMSB[userX - 1, userY - 1] = (int)Spaces.EmptySpace;
+                            if (newMSB[userX - 1, userY - 1] == (int)Spaces.Unkown)
+                            {
+                                playerMSB[userX - 1, userY - 1] = (int)Spaces.EmptySpace;
+                                numUnknownSpaces--;
+                            }
                         }
-                        if (newMSB[userX, userY - 1] == (int)Spaces.Unkown)
+                        catch
                         {
-                            playerMSB[userX, userY - 1] = (int)Spaces.EmptySpace;
+
                         }
-                        if (newMSB[userX + 1, userY - 1] == (int)Spaces.Unkown)
+                        try
                         {
-                            playerMSB[userX + 1, userY - 1] = (int)Spaces.EmptySpace;
+                            if (newMSB[userX, userY - 1] == (int)Spaces.Unkown)
+                            {
+                                playerMSB[userX, userY - 1] = (int)Spaces.EmptySpace;
+                                numUnknownSpaces--;
+                            }
                         }
-                        if (newMSB[userX - 1, userY] == (int)Spaces.Unkown)
+                        catch
                         {
-                            playerMSB[userX - 1, userY] = (int)Spaces.EmptySpace;
+
                         }
-                        if (newMSB[userX + 1, userY] == (int)Spaces.Unkown)
+                        try
                         {
-                            playerMSB[userX + 1, userY] = (int)Spaces.EmptySpace;
+                            if (newMSB[userX + 1, userY - 1] == (int)Spaces.Unkown)
+                            {
+                                playerMSB[userX + 1, userY - 1] = (int)Spaces.EmptySpace;
+                                numUnknownSpaces--;
+                            }
                         }
-                        if (newMSB[userX - 1, userY + 1] == (int)Spaces.Unkown)
+                        catch
                         {
-                            playerMSB[userX - 1, userY + 1] = (int)Spaces.EmptySpace;
+
                         }
-                        if (newMSB[userX, userY + 1] == (int)Spaces.Unkown)
+                        try
                         {
-                            playerMSB[userX, userY + 1] = (int)Spaces.EmptySpace;
+                            if (newMSB[userX - 1, userY] == (int)Spaces.Unkown)
+                            {
+                                playerMSB[userX - 1, userY] = (int)Spaces.EmptySpace;
+                                numUnknownSpaces--;
+                            }
                         }
-                        if (newMSB[userX + 1, userY + 1] == (int)Spaces.Unkown)
+                        catch
                         {
-                            playerMSB[userX + 1, userY + 1] = (int)Spaces.EmptySpace;
+
+                        }
+                        try
+                        {
+                            if (newMSB[userX + 1, userY] == (int)Spaces.Unkown)
+                            {
+                                playerMSB[userX + 1, userY] = (int)Spaces.EmptySpace;
+                                numUnknownSpaces--;
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                        try
+                        {
+                            if (newMSB[userX - 1, userY + 1] == (int)Spaces.Unkown)
+                            {
+                                playerMSB[userX - 1, userY + 1] = (int)Spaces.EmptySpace;
+                                numUnknownSpaces--;
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                        try
+                        {
+                            if (newMSB[userX, userY + 1] == (int)Spaces.Unkown)
+                            {
+                                playerMSB[userX, userY + 1] = (int)Spaces.EmptySpace;
+                                numUnknownSpaces--;
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                        try
+                        {
+                            if (newMSB[userX + 1, userY + 1] == (int)Spaces.Unkown)
+                            {
+                                playerMSB[userX + 1, userY + 1] = (int)Spaces.EmptySpace;
+                                numUnknownSpaces--;
+                            }
+                        }
+                        catch
+                        {
+
                         }
 
                     }
@@ -315,6 +439,7 @@ namespace Julius_MineSweeper
                     else
                     {
                         playerMSB[userX, userY] = newMSB[userX, userY];
+                        numUnknownSpaces--;
                     }
 
                 }
@@ -338,7 +463,7 @@ namespace Julius_MineSweeper
         /// </summary>
         static void WinCondition()
         {
-           if (numFlagSpaces == numBombSpaces)
+            if (numUnknownSpaces == numBombSpaces)
             {
                 playing = "n";
                 win = true;
@@ -347,7 +472,6 @@ namespace Julius_MineSweeper
 
         static void WriteTutorial()
         {
-            Console.WriteLine("bombspaces" + numBombSpaces + "Flagspaces" + numFlagSpaces);
             Console.WriteLine("How to play: Use the console to write which fields you want to select like a cordinate system");
             Console.WriteLine("Examples: 56, 84 and 37");
             Console.WriteLine("To place flags write f after the field you want to select");
