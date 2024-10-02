@@ -339,7 +339,7 @@ namespace Julius_MineSweeper
                     }
 
                     //Changes playerboard to reflect how the newMSB looks so the player can see what number they revealed
-                    else
+                    else if (playerMSB[userX, userY] == (int) Spaces.Unkown)
                     {
                         playerMSB[userX, userY] = newMSB[userX, userY];
                         numUnknownSpaces--;
