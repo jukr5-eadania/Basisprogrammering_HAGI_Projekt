@@ -21,32 +21,18 @@ namespace Game_Jeopardy_Emilie
 
         static void Main(string[] args)
         {
-            //varible list
-                       
+            //varible list                       
             bool playJeopardy = true;
             string response;
             
             
-
-
-            //The intro, how to play and the score 
-            // I want to showcase the points the player has at the top of the screen
+            //The intro, how to play and the score            
             Console.WriteLine("Welcome to Jeopardy!\nHow To Play:\nPick a category by typing the corrosponding number\nof what you want to pick.\nRemember to write: what/who is ...");
             
-
-
-
-            //Ask what category
-            //Ask how many points
-            //The player should get the question that corrosponds with the choosen points
-            /*Console.WriteLine("What Category do you want?");
-            Console.WriteLine("1. Who is that character   2.Where is that character from   3. Horror   4.Geography   5. \n");
-            int choosenAnswer = Convert.ToInt32(Console.ReadLine());*/
-
-            /*int[] ArrayCategory = new int[] { 1, 2, 3, 4, 5 };*/
-
-
-
+            /// in order to open and close the category/questions we need to check is they have been chosen once before. 
+            /// if a question have not been chosen before it will be set to TRUE, otherwise it will be set to FALSE. All questions starts out beeing set to TRUE
+            /// all category starts out beeing set to TRUE, but if all the questions in the category has been chosen, the category will be sat to FALSE
+            
             checkCategory[0] = true; checkCategory[1] = true; checkCategory[2] = true; checkCategory[3] = true; checkCategory[4] = true;
             // for category 1
             checkQuestion1[0] = true; checkQuestion1[1] = true; checkQuestion1[2] = true; checkQuestion1[3] = true; checkQuestion1[4] = true;
