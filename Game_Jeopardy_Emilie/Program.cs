@@ -59,8 +59,7 @@ namespace Game_Jeopardy_Emilie
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"Your Score: {myscore}\n");
                 Console.ResetColor();
-                // tjek om pointcategory er blevet brugt en gang 
-                // start med at sætte alle --- til true så de kan åbnes
+                                 
                 Console.WriteLine("What Category do you want?");
                 
                 //if all questions for the category have been used, close the category from the choice list
@@ -202,7 +201,7 @@ namespace Game_Jeopardy_Emilie
 
                 }
                 
-                //if all categorys has been played ask if the player want to play again or exit
+                //if all categorys has been closed ask if the player want to play again or exit
                 if (checkCategory[0] == false && checkCategory[1] == false && checkCategory[2] == false && checkCategory[3] == false && checkCategory[4] == false)
                 {
                     // ask if player wants to play agian.
