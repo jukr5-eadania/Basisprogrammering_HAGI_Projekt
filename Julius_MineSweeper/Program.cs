@@ -38,7 +38,7 @@ namespace Julius_MineSweeper
         static string playing = "n";
         static int flags = 10;
         static string gameStart = "y";
-        static bool win;
+        static bool win = true;
         static int numFlagSpaces;
         static int numBombSpaces;
 
@@ -56,16 +56,10 @@ namespace Julius_MineSweeper
                 gameStart = playing = Console.ReadLine();
 
                 //Game loop
-                while (playing == "y" && win == false)
+                while (playing == "y")
                 {
                     Console.Clear();
-                    Console.WriteLine("bombspaces" + numBombSpaces +"Flagspaces" + numFlagSpaces);
-                    Console.WriteLine("How to play: Use the console to write which fields you want to select like a cordinate system");
-                    Console.WriteLine("Examples: 56, 84 and 37");
-                    Console.WriteLine("To place flags write f after the field you want to select");
-                    Console.WriteLine("Examples: 27f, 12f and 88f");
-                    Console.WriteLine();
-                    Console.WriteLine("Flags: " + flags);
+                    WriteTutorial();
                     WriteNewMSB();
                     WritePlayerMSB();
                     CheckMSBValue();
@@ -153,6 +147,7 @@ namespace Julius_MineSweeper
         static void WritePlayerMSB()
         {
             sideGridNumber = 0;
+            Console.WriteLine("Flags: " + flags);
             Console.WriteLine("PlayerMSB");
             Console.WriteLine("    1   2   3   4   5   6   7   8");
 
@@ -348,6 +343,16 @@ namespace Julius_MineSweeper
                 playing = "n";
                 win = true;
             }
+        }
+
+        static void WriteTutorial()
+        {
+            Console.WriteLine("bombspaces" + numBombSpaces + "Flagspaces" + numFlagSpaces);
+            Console.WriteLine("How to play: Use the console to write which fields you want to select like a cordinate system");
+            Console.WriteLine("Examples: 56, 84 and 37");
+            Console.WriteLine("To place flags write f after the field you want to select");
+            Console.WriteLine("Examples: 27f, 12f and 88f");
+            Console.WriteLine();
         }
     }
 }
