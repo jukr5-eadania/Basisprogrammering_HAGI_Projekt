@@ -27,7 +27,7 @@ namespace Julius_MineSweeper
         Flag
     }
 
-    internal class Program
+    internal class MineSweeper
     {
         //Define variables and arrays
         static Random rnd = new Random();
