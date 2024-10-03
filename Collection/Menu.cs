@@ -3,7 +3,7 @@ using System;
 
 namespace Collection
 {
-    internal class Program
+    internal class Menu
     {
         static int Selected = 1;
         static void Main(string[] args)
