@@ -47,6 +47,8 @@ namespace Julius_MineSweeper
         static void Main(string[] args)
         {
             //Intro loop
+            gameStart = "y";
+
             while (gameStart == "y")
             {
                 Console.Clear();
@@ -73,6 +75,7 @@ namespace Julius_MineSweeper
                     Console.Clear();
                     WritePlayerMSB();
                     Console.WriteLine("You Won!");
+                    Console.WriteLine("Press Enter to go back to the menu");
                     Console.ReadLine();
 
                 }
@@ -291,9 +294,17 @@ namespace Julius_MineSweeper
         static void CheckMSBValue()
         {
             //Assign variables
-            char[] userInput = Console.ReadLine().ToCharArray();
-            userX = (int)char.GetNumericValue(userInput[0]) - 1;
-            userY = (int)char.GetNumericValue(userInput[1]) - 1;
+            string userInput = Console.ReadLine();
+            if (userInput == "q")
+            {
+                gameStart = "n";
+                playing = "n";
+                return;
+            }
+
+            char[] userInput2 = userInput.ToCharArray();
+            userX = (int)char.GetNumericValue(userInput2[0]) - 1;
+            userY = (int)char.GetNumericValue(userInput2[1]) - 1;
             bool flag = false;
 
             //Checks if user input contains a f for flag
@@ -335,7 +346,7 @@ namespace Julius_MineSweeper
                     }
 
                     //Changes playerboard to reflect how the newMSB looks so the player can see what number they revealed
-                    else if (playerMSB[userX, userY] == (int) Spaces.Unkown)
+                    else if (playerMSB[userX, userY] == (int)Spaces.Unkown)
                     {
                         playerMSB[userX, userY] = newMSB[userX, userY];
                         numUnknownSpaces--;
@@ -513,104 +524,6 @@ namespace Julius_MineSweeper
 
             }
 
-
-            ////Checks the 8 surrounding spaces if they are unknown as well and changes them to empty spaces if they are unkown
-            //try
-            //{
-            //    if (newMSB[userX - 1, userY - 1] == (int)Spaces.Unkown)
-            //    {
-            //        playerMSB[userX - 1, userY - 1] = (int)Spaces.EmptySpace;
-            //        numUnknownSpaces--;
-            //    }
-            //}
-            //catch
-            //{
-
-            //}
-            //try
-            //{
-            //    if (newMSB[userX, userY - 1] == (int)Spaces.Unkown)
-            //    {
-            //        playerMSB[userX, userY - 1] = (int)Spaces.EmptySpace;
-            //        numUnknownSpaces--;
-            //    }
-            //}
-            //catch
-            //{
-
-            //}
-            //try
-            //{
-            //    if (newMSB[userX + 1, userY - 1] == (int)Spaces.Unkown)
-            //    {
-            //        playerMSB[userX + 1, userY - 1] = (int)Spaces.EmptySpace;
-            //        numUnknownSpaces--;
-            //    }
-            //}
-            //catch
-            //{
-
-            //}
-            //try
-            //{
-            //    if (newMSB[userX - 1, userY] == (int)Spaces.Unkown)
-            //    {
-            //        playerMSB[userX - 1, userY] = (int)Spaces.EmptySpace;
-            //        numUnknownSpaces--;
-            //    }
-            //}
-            //catch
-            //{
-
-            //}
-            //try
-            //{
-            //    if (newMSB[userX + 1, userY] == (int)Spaces.Unkown)
-            //    {
-            //        playerMSB[userX + 1, userY] = (int)Spaces.EmptySpace;
-            //        numUnknownSpaces--;
-            //    }
-            //}
-            //catch
-            //{
-
-            //}
-            //try
-            //{
-            //    if (newMSB[userX - 1, userY + 1] == (int)Spaces.Unkown)
-            //    {
-            //        playerMSB[userX - 1, userY + 1] = (int)Spaces.EmptySpace;
-            //        numUnknownSpaces--;
-            //    }
-            //}
-            //catch
-            //{
-
-            //}
-            //try
-            //{
-            //    if (newMSB[userX, userY + 1] == (int)Spaces.Unkown)
-            //    {
-            //        playerMSB[userX, userY + 1] = (int)Spaces.EmptySpace;
-            //        numUnknownSpaces--;
-            //    }
-            //}
-            //catch
-            //{
-
-            //}
-            //try
-            //{
-            //    if (newMSB[userX + 1, userY + 1] == (int)Spaces.Unkown)
-            //    {
-            //        playerMSB[userX + 1, userY + 1] = (int)Spaces.EmptySpace;
-            //        numUnknownSpaces--;
-            //    }
-            //}
-            //catch
-            //{
-
-            //}
         }
 
         /// <summary>
@@ -634,6 +547,7 @@ namespace Julius_MineSweeper
             Console.WriteLine("Examples: 56, 84 and 37");
             Console.WriteLine("To place flags write f after the field you want to select");
             Console.WriteLine("Examples: 27f, 12f and 88f");
+            Console.WriteLine("Write q to exit program");
             Console.WriteLine();
         }
     }
