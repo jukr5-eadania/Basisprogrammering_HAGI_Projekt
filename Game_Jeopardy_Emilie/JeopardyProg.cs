@@ -45,6 +45,7 @@ namespace Game_Jeopardy_Emilie
             // for category 5
             checkQuestion5[0] = true; checkQuestion5[1] = true; checkQuestion5[2] = true; checkQuestion5[3] = true; checkQuestion5[4] = true;
 
+            
 
             while (playJeopardy)
             {
@@ -61,6 +62,7 @@ namespace Game_Jeopardy_Emilie
                 Console.ResetColor();
                                  
                 Console.WriteLine("What Category do you want?");
+
                 
                 //if all questions for the category have been used, close the category from the choice list
                 if (checkCategory[0] == false)
@@ -85,11 +87,17 @@ namespace Game_Jeopardy_Emilie
                 }
 
                 // the list of categories
-                Console.WriteLine($"{category1}{category2}{category3}{category4}{category5}\n");
+                Console.WriteLine($"{category1}{category2}{category3}{category4}{category5}\n");            
                 int chosenAnswer = Convert.ToInt32(Console.ReadLine());
+                
 
                 switch (chosenAnswer) //pick the question within the category that was chosen
                 {
+                    case 0:
+                        {
+                            playJeopardy = false;
+                            break;
+                        }
                     case 1: //Who is that character
                         {
                             // if you press the number for the category even if it is not there you get error message
@@ -198,9 +206,10 @@ namespace Game_Jeopardy_Emilie
                             break;
 
                         }
+                    
 
                 }
-                
+
                 //if all categorys has been closed ask if the player want to play again or exit
                 if (checkCategory[0] == false && checkCategory[1] == false && checkCategory[2] == false && checkCategory[3] == false && checkCategory[4] == false)
                 {

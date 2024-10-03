@@ -25,10 +25,11 @@ namespace Game_Jeopardy_Emilie
             //varible list                       
             bool playJeopardy = true;
             string response;
+            myscore = 0;
             
             
             //The intro, how to play and the score            
-            Console.WriteLine("Welcome to Jeopardy!\nHow To Play:\nPick a category by typing the corrosponding number\nof what you want to pick.\nRemember to write: what/who is ...");
+            Console.WriteLine("Welcome to Jeopardy!\nHow To Play:\nPick a category by typing the corrosponding number\nof what you want to pick.\nRemember to write: what/who is ...\nto quit the game press 0");
             
             /// in order to open and close the category/questions we need to check is they have been chosen once before. 
             /// if a question have not been chosen before it will be set to TRUE, otherwise it will be set to FALSE. All questions starts out beeing set to TRUE
@@ -91,6 +92,11 @@ namespace Game_Jeopardy_Emilie
 
                 switch (chosenAnswer) //pick the question within the category that was chosen
                 {
+                    case 0:
+                        {
+                            playJeopardy = false;
+                            break;
+                        }
                     case 1: //Who is that character
                         {
                             // if you press the number for the category even if it is not there you get error message
