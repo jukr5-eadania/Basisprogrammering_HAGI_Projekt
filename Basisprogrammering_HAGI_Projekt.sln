@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collection", "Collection\Collection.csproj", "{B543C1FB-15C0-4985-B4DF-775635817FE8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Julius_MineSweeper", "Julius_MineSweeper\Julius_MineSweeper.csproj", "{DB348DD8-0798-478B-858C-9C064AA98C40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessGame", "ChessGame\ChessGame.csproj", "{34FD5739-CC57-4B5E-8A48-2C498FA824B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +22,10 @@ Global
 		{DB348DD8-0798-478B-858C-9C064AA98C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB348DD8-0798-478B-858C-9C064AA98C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB348DD8-0798-478B-858C-9C064AA98C40}.Release|Any CPU.Build.0 = Release|Any CPU
+    {34FD5739-CC57-4B5E-8A48-2C498FA824B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34FD5739-CC57-4B5E-8A48-2C498FA824B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34FD5739-CC57-4B5E-8A48-2C498FA824B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34FD5739-CC57-4B5E-8A48-2C498FA824B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
