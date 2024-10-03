@@ -1,7 +1,7 @@
 ﻿using Chess;
 using System;
 
-namespace Collection
+namespace MainMenu
 {
     internal class Menu
     {
