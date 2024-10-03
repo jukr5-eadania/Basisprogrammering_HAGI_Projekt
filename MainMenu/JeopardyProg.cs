@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game_Jeopardy_Emilie
 {
-    internal class Program
+    internal class JeopardyProg
     {
         static string myanswer;
         static int pointcategory;
@@ -19,8 +19,9 @@ namespace Game_Jeopardy_Emilie
         static bool[] checkQuestion5 = new bool[5];
 
 
-        static void Main(string[] args)
+        public static void PlayJeopardy()
         {
+            Console.Clear();
             //varible list                       
             bool playJeopardy = true;
             string response;

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A2BDFBF1-D13B-4256-B595-50528F4F691E}</ProjectGuid>
+    <ProjectGuid>{B7124B6E-44FC-4423-977C-5BB286C586E8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Game_Jeopardy_Emilie</RootNamespace>
-    <AssemblyName>Game_Jeopardy_Emilie</AssemblyName>
+    <RootNamespace>MainMenu</RootNamespace>
+    <AssemblyName>MainMenu</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChessProg.cs" />
     <Compile Include="JeopardyProg.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="MineSweeper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
