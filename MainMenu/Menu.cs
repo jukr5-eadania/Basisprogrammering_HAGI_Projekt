@@ -75,21 +75,21 @@ namespace MainMenu
             Console.Clear();
             if (Selected == 1)
             {
-                Console.WriteLine("Chess <-");
-                Console.WriteLine("MineSweeper");
-                Console.WriteLine("Jeopardy");
+                Console.WriteLine("Mads - Chess <-");
+                Console.WriteLine("Julius - MineSweeper");
+                Console.WriteLine("Emilie - Jeopardy");
             }
             else if (Selected == 2)
             {
-                Console.WriteLine("Chess");
-                Console.WriteLine("MineSweeper <-");
-                Console.WriteLine("Jeopardy");
+                Console.WriteLine("Mads - Chess");
+                Console.WriteLine("Julius - MineSweeper <-");
+                Console.WriteLine("Emilie - Jeopardy");
             }
             else if (Selected == 3)
             {
-                Console.WriteLine("Chess");
-                Console.WriteLine("MineSweeper");
-                Console.WriteLine("Jeopardy <-");
+                Console.WriteLine("Mads - Chess");
+                Console.WriteLine("Julius - MineSweeper");
+                Console.WriteLine("Emilie - Jeopardy <-");
             }
         }
     }

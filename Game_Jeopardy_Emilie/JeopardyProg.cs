@@ -407,7 +407,7 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("Ups! you have already tried this question\n pick another question");
                             break;
                         }
-                        Console.WriteLine("The game franchises that introduced Gorden Freeman");
+                        Console.WriteLine("The game franchises that introduced Gordon Freeman");
                         myanswer = Console.ReadLine();
                         string AnswerHalfLife = "what is half-life";
                         myanswer = myanswer.ToLower();
@@ -515,7 +515,7 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("Ups! you have already tried this question\n pick another question");
                             break;
                         }
-                        Console.WriteLine("A young kung-fu student looking for revange.\n Everytime he dies he grows older");
+                        Console.WriteLine("A young kung-fu student looking for revenge.\n Everytime he dies he grows older");
                         myanswer = Console.ReadLine();
                         string AnswerSifu = "what is sifu";
                         myanswer = myanswer.ToLower();
@@ -552,7 +552,7 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("Ups! you have already tried this question\n pick another question");
                             break;
                         }
-                        Console.WriteLine("Space-horror game where player\nis up against (or more like hidding from) a Xenomorph");
+                        Console.WriteLine("Space-horror game where the player\nis up against (or more like hiding from) a Xenomorph");
                         myanswer = Console.ReadLine();
                         string AnswerAlien = "what is alien: isolation";
                         myanswer = myanswer.ToLower();
@@ -606,7 +606,7 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("Ups! you have already tried this question\n pick another question");
                             break;
                         }
-                        Console.WriteLine("A popular post-apocalyptic game that has been into a tv-serie");
+                        Console.WriteLine("A popular post-apocalyptic game that has been turned into a tv-series");
                         myanswer = Console.ReadLine();
                         string Answer = "what is the last of us";
                         myanswer = myanswer.ToLower();
@@ -724,7 +724,7 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("Ups! you have already tried this question\n pick another question");
                             break;
                         }
-                        Console.WriteLine("In what country does Assasin's Creed: Mirage?");
+                        Console.WriteLine("In what country does Assasin's Creed: Mirage take place?");
                         myanswer = Console.ReadLine();
                         string AnswerMirage = "what is iraq";
                         myanswer = myanswer.ToLower();
@@ -751,7 +751,7 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("Ups! you have already tried this question\n pick another question");
                             break;
                         }
-                        Console.WriteLine("In what country does Metal Gear Solid 3: Snake Eaater take place?");
+                        Console.WriteLine("In what country does Metal Gear Solid 3: Snake Eater take place?");
                         myanswer = Console.ReadLine();
                         string Answer = "what is russia";
                         myanswer = myanswer.ToLower();
@@ -778,7 +778,7 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("Ups! you have already tried this question\n pick another question");
                             break;
                         }
-                        Console.WriteLine("What country has inspired Tomb Raider (2014) setting");
+                        Console.WriteLine("What country inspired the setting for Tomb Raider (2014)?");
                         myanswer = Console.ReadLine();
                         string Answer = "what is japan";
                         myanswer = myanswer.ToLower();
@@ -841,7 +841,7 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("Ups! you have already tried this question\n pick another question");
                             break;
                         }
-                        Console.WriteLine("I am the one that started the Phantom thieves. I have the abillity to smell treasures.\nBut most importenly i'm NOT a CAT!");
+                        Console.WriteLine("I am the one that started the Phantom thieves. I have the abillity to smell treasure.\nBut most importantly I'm NOT a CAT!");
                         myanswer = Console.ReadLine();
                         string Answer = "who is morgana";
                         myanswer = myanswer.ToLower();
@@ -868,7 +868,7 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("Ups! you have already tried this question\n pick another question");
                             break;
                         }
-                        Console.WriteLine("I'm one of the four Champions of Hyrule and the pilot\nof the Divine Beast Vha Medoh");
+                        Console.WriteLine("I'm one of the four Champions of Hyrule and the pilot\nof the Divine Beast Vah Medoh");
                         myanswer = Console.ReadLine();
                         string Answer = "who is revali";
                         myanswer = myanswer.ToLower();
@@ -877,13 +877,13 @@ namespace Game_Jeopardy_Emilie
                         if (myanswer == Answer)
                         {
                             RightAnswer();
-                            myscore += 100;
+                            myscore += 200;
                         }
                         else
                         {
                             WrongAnswer();
                             Console.WriteLine("The answer was:\n" + Answer);
-                            myscore -= 100;
+                            myscore -= 200;
                         }
                         checkQuestion5[1] = false;
                         break;
@@ -895,7 +895,7 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("Ups! you have already tried this question\n pick another question");
                             break;
                         }
-                        Console.WriteLine("I was kidnapped and incarcerated by Abstergo, a Templar organisation,\nand forced into a machine called Animus to relive\nthe genetic memories og my ancestors");
+                        Console.WriteLine("I was kidnapped and incarcerated by Abstergo, a Templar organisation,\nand forced into a machine called Animus to relive\nthe genetic memories of my ancestors");
                         myanswer = Console.ReadLine();
                         string Answer = "who is desmond miles";
                         myanswer = myanswer.ToLower();
@@ -904,13 +904,13 @@ namespace Game_Jeopardy_Emilie
                         if (myanswer == Answer)
                         {
                             RightAnswer();
-                            myscore += 100;
+                            myscore += 300;
                         }
                         else
                         {
                             WrongAnswer();
                             Console.WriteLine("The answer was:\n" + Answer);
-                            myscore -= 100;
+                            myscore -= 300;
                         }
                         checkQuestion5[2] = false;
                         break;
@@ -922,7 +922,7 @@ namespace Game_Jeopardy_Emilie
                             Console.WriteLine("Ups! you have already tried this question\n pick another question");
                             break;
                         }
-                        Console.WriteLine("I'm a robot with a SOUL, and i'm the sole tv-star of\nthe Underground. My body was made by Alphys");
+                        Console.WriteLine("I'm a robot with a SOUL, and I'm the sole tv-star of\nthe Underground. My body was made by Alphys");
                         myanswer = Console.ReadLine();
                         string Answer = "who is mettaton";
                         myanswer = myanswer.ToLower();
@@ -931,13 +931,13 @@ namespace Game_Jeopardy_Emilie
                         if (myanswer == Answer)
                         {
                             RightAnswer();
-                            myscore += 100;
+                            myscore += 400;
                         }
                         else
                         {
                             WrongAnswer();
                             Console.WriteLine("The answer was:\n" + Answer);
-                            myscore -= 100;
+                            myscore -= 400;
                         }
                         checkQuestion5[3] = false;
                         break;
@@ -958,13 +958,13 @@ namespace Game_Jeopardy_Emilie
                         if (myanswer == Answer)
                         {
                             RightAnswer();
-                            myscore += 100;
+                            myscore += 500;
                         }
                         else
                         {
                             WrongAnswer();
                             Console.WriteLine("The answer was:\n" + Answer);
-                            myscore -= 100;
+                            myscore -= 500;
                         }
                         checkQuestion5[4] = false;
                         break;
