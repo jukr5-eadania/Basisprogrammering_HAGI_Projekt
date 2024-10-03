@@ -78,6 +78,10 @@ namespace Chess
         static void ResetBoard()
         {
             playingChess = true;
+            xPos = 0;
+            yPos = 0;
+            xPosSel = 8;
+            yPosSel = 8;
 
             // Empties board
             for (int y = 0; y < 8; y++)
