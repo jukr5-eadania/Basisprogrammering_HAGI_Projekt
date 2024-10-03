@@ -62,7 +62,6 @@ namespace Julius_MineSweeper
                 {
                     Console.Clear();
                     WriteTutorial();
-                    WriteNewMSB();
                     WritePlayerMSB();
                     CheckMSBValue();
                     WinCondition();
@@ -210,8 +209,6 @@ namespace Julius_MineSweeper
         {
             sideGridNumber = 0;
             Console.WriteLine("Flags: " + flags);
-            Console.WriteLine("numUnknown" + numUnknownSpaces);
-            Console.WriteLine("PlayerMSB");
             Console.WriteLine("    1   2   3   4   5   6   7   8");
 
             for (int y = 0; y < playerMSB.GetLength(0); y++)
